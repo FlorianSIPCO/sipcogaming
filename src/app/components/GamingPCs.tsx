@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const gamingPCs = [
-  { id: 1, name: "Ultra Gaming", desc: "FPS élevés, graphismes max, réactivité sans faille. Conçu pour les gamers exigeants.", img: "/images/gaming.jpg" },
-  { id: 2, name: "Streamer & Gamer", desc: "Jouez et streamez en 1080p/4K sans perte de fluidité. Performance multitâche garantie.", img: "/images/streaming.jpg" },
+  { id: 1, name: "Streamer & Gamer", desc: "Jouez et streamez en 1080p/4K sans perte de fluidité. Performance multitâche garantie.", img: "/images/streaming.jpg" },
+  { id: 2, name: "Ultra Gaming", desc: "FPS élevés, graphismes max, réactivité sans faille. Conçu pour les gamers exigeants.", img: "/images/gaming.jpg" },
   { id: 3, name: "Créateurs & Pros", desc: "Rendu vidéo rapide, multitâche fluide et puissance adaptée aux logiciels pro.", img: "/images/video.jpg" },
 ];
 

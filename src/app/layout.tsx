@@ -5,6 +5,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import CartModal from "./components/CartModal";
+import { Toaster } from "react-hot-toast";
+import SessionProviderWrapper from "@/context/SessionProviderWrapper";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,12 +54,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <CartProvider>
-          <Navbar />
-          <main className="flex flex-col flex-grow" >{children}</main>
-          <Footer />
-          <CartModal />
-        </CartProvider>
+        <SessionProviderWrapper>
+          <CartProvider>
+            <Navbar />
+            <main className="flex flex-col flex-grow" >
+              <Toaster position="top-right" reverseOrder={false} />
+              {children}
+            </main>
+            <Footer />
+            <CartModal />
+          </CartProvider>
+        </SessionProviderWrapper>
       </body>
     </html>
   );

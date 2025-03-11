@@ -24,7 +24,7 @@ export const createUser = async (userData: UserData) => {
     // Vérifier si l'utilisateur existe déjà
     const existingUser = await prisma.user.findUnique({ where: { email } });
     if (existingUser) {
-      throw new Error("Adresse non disponible.");
+      throw new Error("Adresse mail non disponible.");
     }
 
     // Hash du mot de passe avant de le stocker (NextAuth le gérera aussi)
