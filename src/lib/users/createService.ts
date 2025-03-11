@@ -45,14 +45,14 @@ export const createUser = async (userData: UserData) => {
         dateOfBirth: formattedDateOfBirth,
         phoneNumber,
         addresses: {
-            create: [
-                {
-                    street,
-                    city,
-                    zipCode,
-                    country
-                }
-            ]
+          create: [
+              {
+                  street,
+                  city,
+                  zipCode,
+                  country
+              }
+          ]
         },
         role: role || "CLIENT",
       },
@@ -64,3 +64,4 @@ export const createUser = async (userData: UserData) => {
     throw new Error("Impossible de créer l'utilisateur");
   }
 };
+
