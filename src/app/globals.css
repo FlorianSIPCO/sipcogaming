@@ -1,3 +1,4 @@
+/* Global par Next */
 @import "tailwindcss";
 
 :root {
@@ -19,8 +20,159 @@
   }
 }
 
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet explorer */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Global du projet */
+
+@layer components {
+
+  /* Effets néon */
+  .neon-text {
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
+  }
+
+  .neon-border {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 40px #ff0000;
+  }
+
+  .shadow-neon {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6), 0 0 30px rgba(255, 0, 0, 0.4);
+  }
+
+  .neon-button {
+    background: linear-gradient(90deg, rgba(255, 0, 0, 0.4), #ff4d00, rgba(255, 0, 0, 0.4));
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.4), 0 0 20px rgba(255, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.4);
+    text-shadow: 0 0 5px #fff, 0 0 10px #ff4d00;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .neon-button:hover {
+    box-shadow: 0 0 15px #ff4d00, 0 0 30px #ff0000, 0 0 50px #ff4d00;
+    transform: scale(1.05);
+  }
+
+  /* Ligne verticale pointillé */
+  .bg-dotted-line {
+    max-height: 100%;
+    z-index: 0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 5px,
+      rgba(255, 255, 255, 0.5) 5px,
+      rgba(255, 255, 255, 0.5) 10px
+    );
+    background-size: 100% 10px;
+    overflow: hidden;
+  }
+
+  /* Barres latérales horizontales */
+  .bg-dotted-line-horizontal {
+    background-image: repeating-linear-gradient(
+      to right,
+      transparent,
+      transparent 5px,
+      rgba(255, 255, 255, 0.5) 5px,
+      rgba(255, 255, 255, 0.5) 10px
+    );
+    background-size: 10px 100%;
+  }
+
+  /* Animation de la ligne principale */
+  @keyframes grow-line {
+    from {
+      height: 0;
+    }
+    to {
+      height: 60%;
+    }
+  }
+
+  .animate-grow-line {
+    animation: grow-line linear both;
+    animation-timeline: view();
+  }
+
+  
+  /* Animation de la ligne principale */
+  @keyframes grow-line {
+    from {
+      height: 0;
+    }
+    to {
+      height: 60%;
+    }
+  }
+
+  .animate-grow-line {
+    animation: grow-line linear both;
+    animation-timeline: view();
+  }
+
+  /* Animation des branches latérales vers la gauche */
+  @keyframes grow-left {
+    from {
+      width: 0;
+      transform-origin: left;
+    }
+    to {
+      width: 300px;
+      transform-origin: left;
+    }
+  }
+
+  /* Animation des branches latérales vers la droite */
+  @keyframes grow-right {
+    from {
+      width: 0;
+      transform-origin: right;
+    }
+    to {
+      width: 300px;
+      transform-origin: right;
+    }
+  }
+
+  .animate-grow-left {
+    animation: grow-left linear both;
+    animation-timeline: view();
+  }
+
+  .animate-grow-right {
+    animation: grow-right linear both;
+    animation-timeline: view();
+  }
+
+  @keyframes rgb-flicker {
+    0% { color:  #00FFFF}
+    33% { color: #9400D3 }
+    66% { color:  #00FFFF}
+    100% { color: #FF00FF}
+  }
+  
+  .rgb-animation {
+    transition: color 2s ease-in-out;
+    animation: rgb-flicker 5s infinite alternate ease-in-out;
+  }
 }

@@ -1,0 +1,16 @@
+{
+  "name": "SIPCO Gaming",
+  "short_name": "SIPCO",
+  "description": "PC Gamer montés sur-mesure avec performances optimisées.",
+  "start_url": "/",
+  "background_color": "#000000",
+  "theme_color": "#ff0000",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
