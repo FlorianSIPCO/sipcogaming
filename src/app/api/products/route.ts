@@ -14,6 +14,12 @@ export async function GET() {
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
+
+    // Vérification des images
+    if (!body.images || !Array.isArray(body.images) || body.images.length === 0) {
+      return NextResponse.json({ error: "Les images sont obligatoires" }, { status: 400 });
+    }
+    
     const newProduct = await createProduct(body);
     return NextResponse.json(newProduct, { status: 201 });
   } catch (error) {

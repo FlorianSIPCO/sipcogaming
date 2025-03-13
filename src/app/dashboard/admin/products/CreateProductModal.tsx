@@ -16,8 +16,8 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
     description: "",
   });
 
-  const [imageFile, setImageFile] = useState<File | null>(null);
-  const [imagePath, setImagePath] = useState<string | null>(null);
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
+  const [imagePaths, setImagePaths] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -26,16 +26,16 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
 
   // Logique d'upload d'image
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files?.[0]) {
-        setImageFile(e.target.files[0]);
+    if (e.target.files) {
+        setImageFiles(Array.from(e.target.files));
     }
   };
 
-  const uploadImage = async () => {
-    if (!imageFile) return;
+  const uploadImages = async () => {
+    if (!imageFiles.length) return;
 
     const formData = new FormData();
-    formData.append('image', imageFile);
+    imageFiles.forEach((file) => formData.append('images', file));
 
     try {
         const res = await fetch("/api/upload", {
@@ -46,16 +46,20 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
         if (!res.ok) throw new Error("Erreur lors de l'upload");
 
         const data = await res.json();
-        setImagePath(data.path);
-
-    } catch (error) {
+        setImagePaths(data.paths);
+        return data.paths;
+      } catch (error) {
         console.error('Erreur upload image: ', error)
+        return [];
     }
   }
 
   const createProduct = async () => {
     setLoading(true);
     try {
+      const uploadedPaths = await uploadImages();
+      if (!uploadedPaths.length) throw new Error("Aucune image n'a été uploadée")
+
       const res = await fetch("/api/products", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -63,7 +67,7 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
           ...formData,
           price: parseFloat(formData.price),
           stock: parseInt(formData.stock, 10),
-          images: imagePath ? [imagePath] : [],
+          images: uploadedPaths,
           specs: formData.specs.split(","), // Séparer les specs
         }),
       });
@@ -123,10 +127,11 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
         <input
           type="file"
           accept="image/*"
+          multiple
           onChange={handleFileChange}
           className="w-full p-2 rounded bg-gray-800 border border-gray-600 mt-2"
         />
-         {imageFile && <p className="text-green-400">Image sélectionnée : {imageFile.name}</p>}
+         {imageFiles.length > 0 && (<p className="text-green-400">Image sélectionnée : {imageFiles.map(file => file.name).join(", ")}</p>)}
 
         <input
           type="text"

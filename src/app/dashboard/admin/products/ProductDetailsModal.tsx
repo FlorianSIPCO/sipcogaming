@@ -35,6 +35,11 @@ const ProductDetailsModal: React.FC<{ productId: string; onClose: () => void }> 
 
   if (!product) return null;
 
+  const getImageUrl = (imagePath: string) => {
+    return imagePath.startsWith("/uploads") ? `${window.location.origin}${imagePath}` : imagePath;
+  };
+  
+
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-70 z-50">
       <div className="bg-gray-900 p-6 rounded-lg shadow-lg w-[90%] max-w-lg text-white">
@@ -48,7 +53,7 @@ const ProductDetailsModal: React.FC<{ productId: string; onClose: () => void }> 
         {/* Image principale */}
         <div className="relative w-full h-64 mt-4 bg-white p-4 rounded-lg">
           {selectedImage && (
-            <Image src={selectedImage} alt={product.name} fill className="object-contain rounded-md" />
+            <Image src={getImageUrl(selectedImage)} alt={product.name} fill className="object-contain rounded-md" />
           )}
         </div>
 
@@ -62,7 +67,7 @@ const ProductDetailsModal: React.FC<{ productId: string; onClose: () => void }> 
               }`}
               onClick={() => setSelectedImage(img)}
             >
-              <Image src={img} alt={`Miniature ${index}`} width={64} height={64} className="object-cover rounded-sm" />
+              <Image src={getImageUrl(img)} alt={`Miniature ${index}`} width={64} height={64} className="object-cover rounded-sm" />
             </button>
           ))}
         </div>

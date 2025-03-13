@@ -13,6 +13,10 @@ interface ProductData {
 
 export const createProduct = async (productData: ProductData) => {
   try {
+    if (!productData.images || !Array.isArray(productData.images) || productData.images.length === 0) {
+      throw new Error("Les images sont obligatoires");
+    }
+
     const newProduct = await prisma.product.create({
       data: {
         ...productData,
