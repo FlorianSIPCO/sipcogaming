@@ -22,7 +22,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="w-screen bg-[url('/images/bg-bluelight.jpg')] bg-cover bg-center bg-no-repeat">
+    <div className="w-screen bg-[url('/images/bg-bluelight.jpg')] bg-cover bg-center bg-no-repeat md:h-screen">
         <section className="container mx-auto p-6 text-white">
         <motion.div className="flex flex-col md:flex-row gap-10"
             initial={{ opacity: 0, y: -20 }}

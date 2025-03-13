@@ -13,7 +13,7 @@ export default function Home() {
       <main className="flex flex-col flex-grow justify-center items-center text-white relative">
         {/* Hero Section */}
         <motion.div
-          className="bg-[url('/images/bg-bluelight.jpg')] bg-cover bg-center bg-no-repeat w-screen flex justify-center flex-col items-center md:px-12 text-center"
+          className="bg-[url('/images/bg-bluelight.jpg')] bg-cover bg-center bg-no-repeat w-screen flex justify-center flex-col items-center md:px-12 text-center md:h-screen"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -37,7 +37,7 @@ export default function Home() {
         
         {/* CTA */}
         <motion.div 
-          className="mt-8 md:mt-10"
+          className="mt-8 md:mt-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
@@ -46,7 +46,7 @@ export default function Home() {
         </motion.div>
 
         <motion.div 
-          className="mt-8 md:mt-10"
+          className="mt-8 md:mt-0"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.8 }}

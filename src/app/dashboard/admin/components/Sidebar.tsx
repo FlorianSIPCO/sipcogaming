@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { LogOut, Home, Users, Package } from "lucide-react";
+import { LogOut, Home, Users, User, Package } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
 
@@ -17,6 +17,7 @@ const Sidebar = () => {
   const navItems = [
     { name: "Accueil", href: "/dashboard/admin", icon: <Home size={20} /> },
     { name: "Clients", href: "/dashboard/admin/clients", icon: <Users size={20} /> },
+    { name: "Personnel", href: "/dashboard/admin/personnel", icon: <User size={20} /> },
     { name: "Produits", href: "/dashboard/admin/products", icon: <Package size={20} /> },
   ];
 

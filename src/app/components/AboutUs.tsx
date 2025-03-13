@@ -25,9 +25,9 @@ const AboutUs = () => {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
   return (
-    <section className="relative flex flex-col items-center justify-center w-full py-10 px-6 sm:px-12 bg-[url('/images/bg.jpg')] bg-cover bg-center bg-no-repeat">
+    <section className="relative flex flex-col items-center justify-center pb-10 w-screen px-6 sm:px-12 bg-[url('/images/bg.jpg')] bg-cover bg-center bg-no-repeat">
     {/* Ligne verticale */}
-    <div ref={lineRef} className="hidden sm:block absolute top-10 left-1/2 transform -translate-x-1/2 w-[2px] bg-dotted-line" style={{ height: `${lineHeight}px` }} />
+    <div ref={lineRef} className="hidden sm:block absolute top-1 left-1/2 transform -translate-x-1/2 w-[2px] bg-dotted-line" style={{ height: `${lineHeight}px` }} />
 
     {/* Branches latérales */}
     <div className="hidden sm:block absolute top-[25%] left-1/2 w-[300px] h-[2px] bg-dotted-line-horizontal animate-grow-left"></div>
