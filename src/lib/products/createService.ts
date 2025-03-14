@@ -6,7 +6,7 @@ interface ProductData {
   name: string;
   price: number;
   images: string[];
-  specs: string[];
+  specs: { key: string; value: string }[];
   description: string;
   stock: number;
 }
@@ -17,9 +17,16 @@ export const createProduct = async (productData: ProductData) => {
       throw new Error("Les images sont obligatoires");
     }
 
+    const formattedSpecs = productData.specs.map(spec => `${spec.key}: ${spec.value}`);
+
     const newProduct = await prisma.product.create({
       data: {
-        ...productData,
+        name: productData.name,
+        price: productData.price,
+        images: productData.images,
+        specs: formattedSpecs,
+        description: productData.description,
+        stock: productData.stock,
       },
     });
 

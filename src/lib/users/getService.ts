@@ -18,10 +18,18 @@ export const getAllUsers = async () => {
   }
 };
 
-export const getUserById = async (id: string) => {
+export const getUserById = async (id: string, selectFields?: object) => {
   return await prisma.user.findUnique({
     where: { id },
-    include: { addresses: true },
+    select: selectFields || { 
+      id: true,
+      firstname: true,
+      lastname: true,
+      email: true,
+      role: true,
+      addresses: true,
+      orders: true
+    },
   });
 };
 

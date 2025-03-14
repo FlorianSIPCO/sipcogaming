@@ -43,6 +43,10 @@ body {
   scrollbar-width: none;
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Global du projet */
 
 @layer components {

@@ -16,8 +16,8 @@ const Sidebar = () => {
 
   const navItems = [
     { name: "Accueil", href: "/dashboard/client", icon: <Home size={20} /> },
-    { name: "Produits", href: "/dashboard/client/products", icon: <Package size={20} /> },
-    { name: "Facture", href: "/dashboard/client/Facture", icon: <Users size={20} /> },
+    { name: "Commandes", href: "/dashboard/client/orders", icon: <Package size={20} /> },
+    { name: "Factures", href: "/dashboard/client/factures", icon: <Users size={20} /> },
   ];
 
   return (

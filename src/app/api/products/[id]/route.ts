@@ -24,10 +24,11 @@ export async function PUT(req: NextRequest, context: { params: { id: string } })
   }
 }
 
-export async function DELETE(req: NextRequest, context: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    await deleteProduct(context.params.id);
-    return NextResponse.json({ message: "Produit supprimé avec succès" }, { status: 200 });
+    const productId = params.id;
+    const response = await deleteProduct(productId);
+    return NextResponse.json({ response, message: "Produit supprimé avec succès" }, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: "Erreur lors de la suppression du produit" }, { status: 400 });
   }

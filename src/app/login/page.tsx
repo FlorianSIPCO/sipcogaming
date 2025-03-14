@@ -7,6 +7,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import SpinnerButtons from "../components/SpinnerButtons/SpinnerButtons";
 
 const LoginPage = () => {
   const { register, handleSubmit, watch, reset } = useForm();
@@ -241,7 +242,7 @@ const LoginPage = () => {
             className="w-full bg-red-500 py-2 rounded-md font-bold hover:scale-105 transition"
             whileTap={{ scale: 0.95 }}
           >
-            {loading ? "Chargement..." : isRegistering ? "S'inscrire" : "Se connecter"}
+            {loading ? <SpinnerButtons /> : isRegistering ? "S'inscrire" : "Se connecter"}
           </motion.button>
         </form>
 

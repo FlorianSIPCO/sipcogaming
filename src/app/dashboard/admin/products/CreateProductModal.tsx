@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { X } from "lucide-react";
+import { X, PlusCircle, Trash2 } from "lucide-react";
+import SpinnerButtons from "@/app/components/SpinnerButtons/SpinnerButtons";
 
 interface CreateProductModalProps {
   onClose: () => void;
@@ -12,7 +13,6 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
     name: "",
     price: "",
     stock: "",
-    specs: "",
     description: "",
   });
 
@@ -20,6 +20,29 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
   const [imagePaths, setImagePaths] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
+  // Gestion des caractéristiques dynamiques
+  const [specs, setSpecs] = useState<{ key: string; value: string }[]>([
+    { key: "CPU", value: ""},
+    { key: "GPU", value: ""},
+    { key: "RAM", value: ""}
+  ])
+
+  const handleSpecChange = (index: number, field: "key" | "value", value: string) => {
+    const updatedSpecs = [...specs];
+    updatedSpecs[index][field] = value;
+    setSpecs(updatedSpecs);
+  }
+
+  const addSpec = () => {
+    setSpecs([...specs, { key: "", value: ""}])
+  }
+
+  const removeSpec = (index: number) => {
+    const updatedSpecs = specs.filter((_, i) => i !== index);
+    setSpecs(updatedSpecs)
+  }
+
+  // Gestion globale des inputs
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -68,7 +91,7 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
           price: parseFloat(formData.price),
           stock: parseInt(formData.stock, 10),
           images: uploadedPaths,
-          specs: formData.specs.split(","), // Séparer les specs
+          specs: specs.filter(spec => spec.key && spec.value), // supprime les lignes vides
         }),
       });
 
@@ -133,21 +156,39 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
         />
          {imageFiles.length > 0 && (<p className="text-green-400">Image sélectionnée : {imageFiles.map(file => file.name).join(", ")}</p>)}
 
-        <input
-          type="text"
-          name="specs"
-          value={formData.specs}
-          onChange={handleChange}
-          placeholder="Spécifications (séparées par des virgules)"
-          className="w-full p-2 rounded bg-gray-800 border border-gray-600 mt-2"
-        />
+        {/* Champs dynamiques pour les caractéristiques */}
+        <h3 className="text-lg font-semibold mt-4">Spécifications :</h3>
+        {specs.map((spec, index) => (
+          <div key={index} className="flex gap-2 items-center mt-2">
+            <input
+              type="text"
+              placeholder="Clé (ex: CPU, GPU)"
+              value={spec.key}
+              onChange={(e) => handleSpecChange(index, "key", e.target.value)}
+              className="w-1/3 p-2 rounded bg-gray-800 border border-gray-600"
+            />
+            <input
+              type="text"
+              placeholder="Valeur (ex: Ryzen 7, RTX 4080)"
+              value={spec.value}
+              onChange={(e) => handleSpecChange(index, "value", e.target.value)}
+              className="w-2/3 p-2 rounded bg-gray-800 border border-gray-600"
+            />
+            <button onClick={() => removeSpec(index)} className="text-red-400 hover:text-red-600">
+              <Trash2 size={20} />
+            </button>
+          </div>
+        ))}
+        <button onClick={addSpec} className="flex items-center gap-2 mt-3 text-blue-400 hover:text-blue-600">
+          <PlusCircle size={20} /> Ajouter une spécification
+        </button>
 
         <div className="flex justify-between mt-4">
           <button onClick={onClose} className="bg-red-500 px-4 py-2 rounded">
             Annuler
           </button>
-          <button onClick={createProduct} className="bg-blue-500 px-4 py-2 rounded" disabled={loading}>
-            {loading ? "Ajout..." : "Créer"}
+          <button onClick={createProduct} className="bg-blue-500 px-5 py-2 rounded" disabled={loading}>
+            {loading ? <SpinnerButtons/> : "Créer"}
           </button>
         </div>
       </div>

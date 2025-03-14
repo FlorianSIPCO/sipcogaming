@@ -1,5 +1,6 @@
 "use client";
 
+import GamingLoader from "@/app/components/GamingSpinner/GamingLoader";
 import Sidebar from "./components/Sidebar";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -24,7 +25,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
    }, [session, status, router]);
 
   if (status === "loading") {
-    return <div className="flex items-center justify-center h-screen text-white">Chargement...</div>;
+    return <div className="flex items-center justify-center"><GamingLoader/></div>;
   }
 
   return (
