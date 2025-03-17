@@ -4,9 +4,53 @@ import { useCart } from "@/context/CartContext";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { X, Plus, Minus, Trash } from "lucide-react";
+import { useState } from "react";
+import SpinnerButtons from "./SpinnerButtons/SpinnerButtons";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const CartModal = () => {
   const { cart, removeFromCart, updateQuantity, total, isCartOpen, setIsCartOpen } = useCart();
+  const [loadingCheckout, setLoadingCheckout] = useState(false);
+  const { data: session } = useSession();
+  const router = useRouter();
+
+  // Fonction pour gérer le paiement
+  const handleCheckout = async () => {    
+    setLoadingCheckout(true);
+
+    if (!session?.user?.id) {
+      // Stocker l'URL de redirection après connexion
+      localStorage.setItem("redirectAfterLogin", "stripe-checkout");
+      localStorage.setItem('cartItems', JSON.stringify(cart))
+      toast.error('Vous devez être connecté pour finaliser votre commande')
+      setIsCartOpen(false);
+      router.push("/login");
+      setLoadingCheckout(false);
+      return
+    }
+
+    try {
+      const res = await fetch('/api/checkout', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ cartItems: cart, userId: session.user.id, userEmail: session.user.email }),
+      });
+
+      const data = await res.json();
+      if (data.url) {
+        setIsCartOpen(false);
+        window.location.href = data.url; // Redirige vers Stripe
+      } else {
+        console.error("Erreur lors de la récupération de l'URL de paiement :", data.error);
+      }
+    } catch (error) {
+      console.error('Erreur lors du paiement :', error);
+    } finally {
+      setLoadingCheckout(false);
+    }
+  }
 
   if (!isCartOpen) return null;
   
@@ -82,8 +126,12 @@ const CartModal = () => {
               {cart.length > 0 && (
                 <div className="mt-6 text-center">
                   <p className="text-lg font-bold">Total : <span className="text-red-500">{total.toFixed(2)}€</span></p>
-                  <button className="mt-4 px-6 py-3 bg-red-500 text-white rounded-lg hover:scale-105 transition">
-                    Passer la commande
+                  <button 
+                    onClick={handleCheckout}
+                    disabled={loadingCheckout}
+                    className="mt-4 px-6 py-3 bg-red-500 text-white rounded-lg hover:scale-105 transition"
+                  >
+                    {loadingCheckout ? <SpinnerButtons /> : "Passer la commande"}
                   </button>
                 </div>
               )}

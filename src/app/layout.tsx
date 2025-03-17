@@ -8,6 +8,8 @@ import CartModal from "./components/CartModal";
 import { Toaster } from "react-hot-toast";
 import SessionProviderWrapper from "@/context/SessionProviderWrapper";
 import LayoutWrapper from "./components/LayoutWrapper";
+import { getServerSession } from "next-auth";
+import { authOptions } from "./api/auth/[...nextauth]/route";
 
 
 const geistSans = Geist({

@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, getSession, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -16,6 +16,7 @@ const LoginPage = () => {
   const router = useRouter();
   const [showPasswordCriteria, setShowPasswordCriteria] = useState(false);
   const [DateFormat, setDateFormat] = useState('')
+  const { data: session } = useSession();
 
   // Ecoute les valeurs du formulaire
   const password = watch("password", "");
@@ -46,22 +47,81 @@ const LoginPage = () => {
     setDateFormat(value);
   }
 
-  const onSubmit = async (data: any) => {
+  // Logique de connexion
+  const handleLogin = async (data: any) => {
     setLoading(true);
-
-    // Convertir la date de naissance en format YYYY-MM-DD
-    const formattedDate = dateOfBirth.split("-").reverse().join("-");
-
-    if (isRegistering) {
-      // Vérification du mot de passe et confirmation
-      if (password !== confirmPassword) {
-        toast.error("Les mots de passe ne correspondent pas")
+  
+    try {
+      const res = await signIn("credentials", {
+        redirect: false,
+        email: data.email,
+        password: data.password
+      });
+  
+      if (res?.error) {
+        toast.error("Échec de connexion");
         setLoading(false);
         return;
       }
+  
+      // Récupérer la session après connexion
+      const session = await getSession();
+      const redirectUrl = localStorage.getItem("redirectAfterLogin");
+      localStorage.removeItem("redirectAfterLogin");
+  
+      if (redirectUrl === "stripe-checkout") {
+        // Récupérer le panier stocké avant la connexion
+        const cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  
+        if (cartItems.length > 0) {
+          // Relancer la requête vers Stripe
+          const checkoutRes = await fetch("/api/checkout", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ cartItems, userId: session?.user.id, userEmail: session?.user.email })
+          });
+  
+          const checkoutData = await checkoutRes.json();
+          if (checkoutData.url) {
+            // NE PAS EXÉCUTER D'AUTRES REDIRECTIONS
+            window.location.href = checkoutData.url; // Redirection vers Stripe
+            return;
+          } else {
+            toast.error("Erreur lors de la redirection vers Stripe");
+          }
+        }
+      }
+  
+      // Si on n'est pas dans un cas Stripe, on redirige vers le dashboard
+      if (session?.user.role === "ADMIN") {
+        router.push("/dashboard/admin");
+      } else {
+        router.push("/dashboard/client");
+      }
+    } catch (error) {
+      toast.error('Erreur lors de la connexion');
+    } finally {
+      setLoading(false);
+      reset();
+    }
+  };
+  
 
+  // Logique d'inscription
+  const handleRegister = async (data: any) => {
+    setLoading(true);
+
+    try {
+      // Vérification du mot de passe et confirmation
+      if (password !== confirmPassword) {
+        toast.error("Les mots de passe ne correspondent pas")
+        return;
+      }
+
+      // Convertir la date de naissance en format YYYY-MM-DD
+      const formattedDate = dateOfBirth.split("-").reverse().join("-");
+  
       // Inscription
-      try {
         const res = await fetch("/api/auth/register", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -76,32 +136,10 @@ const LoginPage = () => {
         setIsRegistering(false);
       } catch (error) {
         toast.error("Une erreur est survenue");
-      }
-    } else {
-      // Connexion
-      const res = await signIn("credentials", {
-        redirect: false,
-        email: data.email,
-        password: data.password,
-      });
-
-      if (res?.error) {
-        toast.error("Échec de la connexion");
-        setLoading(false);
-      } else {
-        // ✅ Récupérer la session après connexion
-        const session = await fetch("/api/auth/session").then((res) => res.json());
-
-        if (session?.user.role === "ADMIN") {
-          router.push("/dashboard/admin");
-        } else {
-          router.push("/dashboard/client");
-        }
-      }
-    }
-    setLoading(false);
-    reset();
-  };
+      } finally {
+      setLoading(false);
+    };
+  }
 
   return (
     <div className="w-screen h-[80vh] bg-[url('/images/bg.jpg')] bg-cover bg-center flex items-center justify-center">
@@ -115,7 +153,7 @@ const LoginPage = () => {
           {isRegistering ? "Créer un compte" : "Connexion"}
         </h2>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit(isRegistering ? handleRegister : handleLogin)} className="space-y-4">
           {isRegistering && (
             <>
               <div className="flex gap-4">

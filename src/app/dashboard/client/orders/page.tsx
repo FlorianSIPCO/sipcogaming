@@ -66,7 +66,7 @@ export default function ClientOrders() {
                 <tr key={order.id} className="text-center border border-gray-700 hover:bg-gray-900">
                   <td className="p-3">{index + 1}</td>
                   <td className="p-3">{new Date(order.createdAt).toLocaleDateString()}</td>
-                  <td className="p-3 font-bold">{order.total.toFixed(2)} €</td>
+                  <td className="p-3 font-bold">{Number(order.total.toFixed(2))} €</td>
                   <td className="p-3 flex justify-center items-center gap-2">
                     {statusIcons[order.status] || <Clock size={20} />}
                     {order.status}
