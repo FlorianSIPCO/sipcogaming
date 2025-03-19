@@ -56,7 +56,7 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
   };
 
   const uploadImages = async () => {
-    if (!imageFiles.length) return;
+    if (!imageFiles.length) return [];
 
     const formData = new FormData();
     imageFiles.forEach((file) => formData.append('images', file));

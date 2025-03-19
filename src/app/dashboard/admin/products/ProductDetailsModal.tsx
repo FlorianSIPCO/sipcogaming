@@ -36,7 +36,7 @@ const ProductDetailsModal: React.FC<{ productId: string; onClose: () => void }> 
   if (!product) return null;
 
   const getImageUrl = (imagePath: string) => {
-    return imagePath.startsWith("/uploads") ? `${window.location.origin}${imagePath}` : imagePath;
+    return imagePath;
   };
   
 
@@ -67,7 +67,7 @@ const ProductDetailsModal: React.FC<{ productId: string; onClose: () => void }> 
               }`}
               onClick={() => setSelectedImage(img)}
             >
-              <Image src={getImageUrl(img)} alt={`Miniature ${index}`} width={64} height={64} className="object-cover rounded-sm" />
+              <Image src={getImageUrl(img)} alt={`Miniature ${index}`} width={64} height={64} className="object-cover rounded-sm" unoptimized/>
             </button>
           ))}
         </div>

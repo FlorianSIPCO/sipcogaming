@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
-import { writeFile } from "fs/promises";
-import { join } from "path";
-import { v4 as uuidv4 } from 'uuid'
+import { v2 as cloudinary } from 'cloudinary'
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET
+})
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
@@ -12,25 +16,29 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Accès refusé" }, { status: 403 });
   }
 
-  const formData = await req.formData();
-  const files = formData.getAll("images") as File[];
-
-  if (!files.length) {
-    return NextResponse.json({ error: "Aucun fichier reçu" }, { status: 400 });
-  }
-
   try {
+    const formData = await req.formData();
+    const files = formData.getAll("images") as File[];
+
+    if (!files.length) {
+      return NextResponse.json({ error: "Aucun fichier reçu" }, { status: 400 });
+    }
+
     const uploadedPaths: string[] = [];
 
     for (const file of files) {
       const bytes = await file.arrayBuffer();
       const buffer = Buffer.from(bytes);
   
-      const fileName = `${uuidv4()}-${file.name}`;
-      const filePath = join(process.cwd(), "public/uploads", fileName);
-  
-      await writeFile(filePath, buffer);
-      uploadedPaths.push(`/uploads/${fileName}`)
+      // Convertir buffer en base64 pour cloudinary
+      const base64Image = `data:${file.type};base64,${buffer.toString("base64")}`;
+
+      // upload vers Cloudinary
+      const result = await cloudinary.uploader.upload(base64Image, {
+        folder: "uploads"
+      })
+
+      uploadedPaths.push(result.secure_url);
     }
 
     return NextResponse.json({ paths: uploadedPaths }, { status: 201 });
