@@ -47,7 +47,7 @@ export async function GET(req: NextRequest, context: ContextParams) {
   }
 }
 
-export async function PUT(req: NextRequest, context: any) {
+export async function PUT(req: NextRequest, context: ContextParams) {
   try {
     // Attendre la session
     const session = await getServerSession(authOptions);
@@ -85,7 +85,7 @@ export async function PUT(req: NextRequest, context: any) {
   }
 }
 
-export async function DELETE(req: NextRequest, context: any) {
+export async function DELETE(req: NextRequest, context: ContextParams) {
   const session = await getServerSession(authOptions);
   if(!session) {
     return NextResponse.json({ error: "Non autorisé "}, { status: 401 });
