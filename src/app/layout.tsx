@@ -1,15 +1,11 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
 import { CartProvider } from "@/context/CartContext";
 import CartModal from "./components/CartModal";
 import { Toaster } from "react-hot-toast";
 import SessionProviderWrapper from "@/context/SessionProviderWrapper";
 import LayoutWrapper from "./components/LayoutWrapper";
-import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]/route";
 
 
 const geistSans = Geist({
