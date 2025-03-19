@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import GamingLoader from "../components/GamingSpinner/GamingLoader";
 
-export default function VerifyEmailPage() {
+const VerifyEmailContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
@@ -44,4 +44,12 @@ export default function VerifyEmailPage() {
       {loading ? <GamingLoader/> : <p>{message}</p>}
     </div>
   );
+}
+
+export default function VerifyEmailPage() {
+  return (
+    <Suspense fallback={<GamingLoader />}>
+      <VerifyEmailContent />
+    </Suspense>
+  )
 }
