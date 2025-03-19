@@ -8,20 +8,20 @@ datasource db {
 }
 
 model User {
-  id                        String    @id @default(uuid())
-  lastname                  String
-  firstname                 String
-  dateOfBirth               DateTime
-  email                     String    @unique
-  emailVerified             DateTime?
-  emailVerificationToken    String?   @unique
-  phoneNumber               String?
-  createdAt                 DateTime  @default(now())
-  updatedAt                 DateTime  @updatedAt
-  role                      Role      @default(CLIENT)
-  password                  String
-  addresses                 Address[]
-  orders                    Order[]
+  id                     String    @id @default(uuid())
+  lastname               String
+  firstname              String
+  dateOfBirth            DateTime
+  email                  String    @unique
+  emailVerified          DateTime?
+  phoneNumber            String?
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+  role                   Role      @default(CLIENT)
+  password               String
+  emailVerificationToken String?   @unique
+  addresses              Address[]
+  orders                 Order[]
 }
 
 model Address {
