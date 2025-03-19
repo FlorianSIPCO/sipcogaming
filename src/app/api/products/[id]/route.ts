@@ -3,12 +3,12 @@ import { getProductById } from "@/lib/products/getService";
 import { updateProduct } from "@/lib/products/updateService";
 import { deleteProduct } from "@/lib/products/deleteService";
 
-interface ContextParams {
-  params: { id: string };
-}
-
-export async function GET(req: NextRequest, context: ContextParams) {
+export async function GET(req: NextRequest, context: {params?: {id?: string} }) {
   try {
+    if (!context.params || !context.params.id) {
+      return NextResponse.json({ error: 'ID du produit non fourni'}, { status: 400 })
+    }
+
     const product = await getProductById(context.params.id);
     if (!product) return NextResponse.json({ error: "Produit introuvable" }, { status: 404 });
 
@@ -19,8 +19,12 @@ export async function GET(req: NextRequest, context: ContextParams) {
   }
 }
 
-export async function PUT(req: NextRequest, context: ContextParams) {
+export async function PUT(req: NextRequest, context: {params?: {id?: string} }) {
   try {
+    if (!context.params || !context.params.id) {
+      return NextResponse.json({ error: "ID du produit non fourni" }, { status: 400 });
+    }
+
     const body = await req.json();
     const updatedProduct = await updateProduct(context.params.id, body);
     return NextResponse.json(updatedProduct, { status: 200 });
@@ -30,8 +34,12 @@ export async function PUT(req: NextRequest, context: ContextParams) {
   }
 }
 
-export async function DELETE(req: NextRequest, context: ContextParams) {
+export async function DELETE(req: NextRequest, context: {params?: {id?: string} }) {
   try {
+    if (!context.params || !context.params.id) {
+      return NextResponse.json({ error: "ID du produit non fourni" }, { status: 400 });
+    }
+    
     const productId = context.params.id;
     const response = await deleteProduct(productId);
     return NextResponse.json({ response, message: "Produit supprimé avec succès" }, { status: 200 });
