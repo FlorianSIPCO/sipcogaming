@@ -1,5 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+import { randomUUID } from "crypto";
+import { sendMail } from "../sendMail";
 
 const prisma = new PrismaClient();
 
@@ -30,6 +32,9 @@ export const createUser = async (userData: UserData) => {
     // Hash du mot de passe avant de le stocker (NextAuth le gérera aussi)
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    // Génération d'un token unique pour l'activation du compte
+    const verificationToken = randomUUID();
+
     // Convertion de dateOfBirth en Date
     const formattedDateOfBirth = dateOfBirth ? new Date(dateOfBirth): null;
     if (!formattedDateOfBirth || isNaN(formattedDateOfBirth.getTime())) {
@@ -44,6 +49,8 @@ export const createUser = async (userData: UserData) => {
         lastname,
         dateOfBirth: formattedDateOfBirth,
         phoneNumber,
+        emailVerified: null, // l'email n'est pas encore vérifié
+        emailVerificationToken: verificationToken, // Stocke le token pour l'activation
         addresses: {
           create: [
               {
@@ -58,6 +65,16 @@ export const createUser = async (userData: UserData) => {
       },
     });
 
+    // URL de validation d'email
+    const verificationLink = `${process.env.NEXT_PUBLIC_APP_URL}/verify-email?token=${verificationToken}`
+
+    // Envoi de l'email de confirmation
+    await sendMail(
+      newUser.email,
+      "Validation de votre adresse email",
+      `Bonjour ${newUser.firstname}, \n\nMerci de vous être inscrit. Cliquez sur le lien suivant pour valider votre adresse email : \n\n${verificationLink}\n\nSi vous n'êtes pas à l'origine de cette demande, contactez SIPCO et/ou ignorez cet email.`
+    )
+    
     return newUser;
   } catch (error) {
     console.error("Erreur lors de la création de l'utilisateur:", error);

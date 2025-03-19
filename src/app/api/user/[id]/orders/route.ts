@@ -25,7 +25,7 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
     // Convertir `total` en `Number` avant de renvoyer les données
     const formattedOrders = orders.map(order => ({
       ...order,
-      total: Number(order.total), // ✅ Convertit Decimal en Number
+      total: Number(order.total), // Convertit Decimal en Number
     }));
 
     return NextResponse.json(formattedOrders, { status: 200 });

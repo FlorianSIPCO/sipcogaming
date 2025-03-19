@@ -20,7 +20,19 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
   }
 
   try {
-    const user = await getUserById(id);
+    const user = await getUserById(id, {
+      id: true,
+      firstname: true,
+      lastname: true,
+      email: true,
+      role: true,
+      orders: {
+        select: { id: true, total: true, createdAt: true, status: true},
+      },
+      addresses: {
+        select: { id: true, street: true, city: true, zipCode: true, country: true}
+      }
+    });
     if (!user) {
       return NextResponse.json({ error: "Utilisateur non trouvé" }, { status: 404 });
     }

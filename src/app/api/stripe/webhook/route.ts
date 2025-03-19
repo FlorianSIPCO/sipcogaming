@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
 import { prisma } from "@/lib/prisma";
+import { sendMail } from "@/lib/sendMail";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY as string, {
   apiVersion: "2025-02-24.acacia",
@@ -39,7 +40,7 @@ export async function POST(req: NextRequest) {
       })
 
       if (!existingOrder) {
-          await prisma.order.create({
+          const newOrder = await prisma.order.create({
             data: {
               userId: userId as string,
               stripeSessionId: session.id,
@@ -47,7 +48,12 @@ export async function POST(req: NextRequest) {
               status: "PAID",
             },
           });
-          console.log('Commande enregistrée en BDD pour userId :', userId) ///////////////// LOG
+          // Envoie de l'email de confirmation après création de la commande
+          await sendMail(
+            session.customer_email!,
+            "Confirmation de commande",
+            `Merci pour votre commande ! Votre numéro de commande est ${newOrder.id}.`
+          );
       } else {
         console.warn("Commande déjà existante pour cette session Stripe")
       }

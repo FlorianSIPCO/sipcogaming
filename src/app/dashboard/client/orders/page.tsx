@@ -42,7 +42,7 @@ export default function ClientOrders() {
 
   return (
     <div className="p-6 text-white">
-      <h1 className="text-3xl font-bold mb-6">Historique des commandes</h1>
+      <h1 className="flex flex-col items-center lg:items-start text-center lg:text-left text-3xl font-bold mb-6">Historique des commandes</h1>
 
       {loading ? (
         <div className="flex justify-center">

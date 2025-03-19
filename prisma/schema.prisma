@@ -7,86 +7,79 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Définition de l'énumération des rôles
-enum Role {
-  ADMIN
-  CLIENT
-}
-
-// Modèle Utilisateur
 model User {
-  id            String     @id @default(uuid())
-  lastname      String
-  firstname     String
-  dateOfBirth   DateTime
-  password      String
-  email         String     @unique
-  emailVerified DateTime?  // Pour confirmer l'activation de l'email
-  phoneNumber   String?    
-  addresses     Address[]  // Relation avec les adresses
-  orders        Order[]    // Relation avec les commandes
-  createdAt     DateTime   @default(now())
-  updatedAt     DateTime   @updatedAt
-  role          Role       @default(CLIENT)
+  id                        String    @id @default(uuid())
+  lastname                  String
+  firstname                 String
+  dateOfBirth               DateTime
+  email                     String    @unique
+  emailVerified             DateTime?
+  emailVerificationToken    String?   @unique
+  phoneNumber               String?
+  createdAt                 DateTime  @default(now())
+  updatedAt                 DateTime  @updatedAt
+  role                      Role      @default(CLIENT)
+  password                  String
+  addresses                 Address[]
+  orders                    Order[]
 }
 
-// Modèle Adresse (gestion des adresses multiples)
 model Address {
   id        String   @id @default(uuid())
   userId    String
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   street    String
   city      String
   zipCode   String
   country   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// Modèle Commande (Order)
 model Order {
-  id          String       @id @default(uuid())
-  userId      String
-  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
-  items       OrderItem[]  // Relation avec les articles de la commande
-  total       Decimal
-  status      OrderStatus  @default(PENDING)
-  stripeSessionId String    @unique
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
+  id              String      @id @default(uuid())
+  userId          String
+  total           Decimal
+  status          OrderStatus @default(PENDING)
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  stripeSessionId String      @unique
+  user            User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items           OrderItem[]
 }
 
-// Modèle Article dans la commande
 model OrderItem {
-  id        String   @id @default(uuid())
+  id        String  @id @default(uuid())
   orderId   String
-  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade)
   productId String
-  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   quantity  Int
   price     Decimal
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
-// Énumération du statut des commandes
+model Product {
+  id          String      @id @default(uuid())
+  name        String
+  price       Decimal
+  images      String[]
+  specs       String[]
+  description String
+  stock       Int         @default(0)
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  OrderItem   OrderItem[]
+}
+
+enum Role {
+  ADMIN
+  CLIENT
+}
+
 enum OrderStatus {
   PENDING
   PAID
   SHIPPED
   DELIVERED
   CANCELED
-}
-
-// Modèle Produit (mise à jour pour correspondre à l'app)
-model Product {
-  id          String   @id @default(uuid())
-  name        String
-  price       Decimal
-  images      String[] 
-  specs       String[] // Liste des caractéristiques techniques
-  description String
-  stock       Int      @default(0) // Stock disponible
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  OrderItem OrderItem[]
 }
