@@ -63,7 +63,7 @@ export default function AdminDashboard() {
         </div>
       ) : (
         <>
-          <h1 className="text-3xl font-bold">Bienvenue {user?.firstname} 👋</h1>
+          <h1 className="flex flex-col items-center lg:items-start text-center lg:text-left text-3xl font-bold">Bienvenue {user?.firstname} 👋</h1>
           <p className="text-gray-400 mt-2">Vous êtes connecté en tant qu'administrateur.</p>
 
           {/* Chargement des stats */}
