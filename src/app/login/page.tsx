@@ -7,6 +7,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import toast from "react-hot-toast";
 import Link from "next/link";
+import { Eye, EyeOff } from "lucide-react";
 import SpinnerButtons from "../components/SpinnerButtons/SpinnerButtons";
 
 const LoginPage = () => {
@@ -33,6 +34,14 @@ const LoginPage = () => {
   };
 
   const allCriteriaMet = Object.values(passwordCriteria).every(Boolean);
+
+  // Etat pour gérer la visibilité des mots de passe
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const togglePassword = () => setShowPassword(!showPassword);
+  const toggleConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword)
+  
 
   // Ajoute directement le "-" dans l'input date
   const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -142,7 +151,7 @@ const LoginPage = () => {
   }
 
   return (
-    <div className="w-screen h-[80vh] bg-[url('/images/bg.jpg')] bg-cover bg-center flex items-center justify-center">
+    <div className="w-screen lg:h-[80vh] bg-[url('/images/bg.jpg')] bg-cover bg-center flex items-center justify-center">
       <motion.div
         className="bg-gray-900 text-white p-10 rounded-lg shadow-lg w-[90%] max-w-lg"
         initial={{ opacity: 0, scale: 0.9 }}
@@ -202,25 +211,43 @@ const LoginPage = () => {
             className="border border-gray-500 rounded-md p-2 w-full bg-gray-800"
             required
           />
-          <input
-            type="password"
-            {...register("password")}
-            placeholder="Mot de passe"
-            className="border border-gray-500 rounded-md p-2 w-full bg-gray-800"
-            required
-            onFocus={() => setShowPasswordCriteria(true)}
-            onBlur={() => setShowPasswordCriteria(false)}
-          />
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              {...register("password")}
+              placeholder="Mot de passe"
+              className="border border-gray-500 rounded-md p-2 w-full bg-gray-800"
+              required
+              onFocus={() => setShowPasswordCriteria(true)}
+              onBlur={() => setShowPasswordCriteria(false)}
+            />
+            <button
+              type="button"
+              onClick={togglePassword}
+              className="absolute right-3 top-3 text-gray-400 hover:text-white"
+            >
+              {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+            </button>
+          </div>
 
           {isRegistering && (
             <>
+            <div className="relative">
               <input
-                type="password"
+                type={showConfirmPassword ? "text" : "password"}
                 {...register("confirmPassword")}
                 placeholder="Confirmer mot de passe"
                 className="border border-gray-500 rounded-md p-2 w-full bg-gray-800"
                 required
               />
+              <button
+                type="button"
+                onClick={toggleConfirmPassword}
+                className="absolute right-3 top-3 text-gray-400 hover:text-white"
+              >
+                {showConfirmPassword ? <EyeOff size={20} /> : <Eye size={20} />}
+              </button>
+            </div>
               <input
                 type="text"
                 {...register("street")}
