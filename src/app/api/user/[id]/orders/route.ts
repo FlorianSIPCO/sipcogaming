@@ -3,11 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 
-interface ContextParams {
-  params: { id: string}
-}
-
-export async function GET(req: NextRequest, context: ContextParams) {
+export async function GET(req: NextRequest, context: any) {
   const session = await getServerSession(authOptions);
 
   if (!session || (session.user.role !== "ADMIN" && session.user.id !== context.params.id)) {
