@@ -1,11 +1,12 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import SpinnerButtons from "@/app/components/SpinnerButtons/SpinnerButtons";
 import toast from "react-hot-toast";
+import GamingLoader from "../components/GamingSpinner/GamingLoader";
 
-const SuccessPage = () => {
+const SuccessContent = () => {
   const searchParams = useSearchParams();
   const session_id = searchParams.get("session_id");
   const router = useRouter();
@@ -61,4 +62,10 @@ const SuccessPage = () => {
   );
 };
 
-export default SuccessPage;
+export default function SuccessPage() {
+  return (
+    <Suspense fallback={<GamingLoader />}>
+      <SuccessContent />
+    </Suspense>
+  )
+};
