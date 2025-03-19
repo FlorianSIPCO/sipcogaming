@@ -1,4 +1,4 @@
-"use client"; // ✅ On transforme ce fichier en Client Component
+"use client";
 
 import { SessionProvider } from "next-auth/react";
 

@@ -3,7 +3,7 @@ import { updateUser } from "@/lib/users/updateService";
 import { deleteUser } from "@/lib/users/deleteService";
 import { getUserById } from "@/lib/users/getService";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 
 export async function GET(req: NextRequest, context: { params: { id: string } }) {
   const session = await getServerSession(authOptions);

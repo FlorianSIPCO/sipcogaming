@@ -3,7 +3,7 @@ import { writeFile } from "fs/promises";
 import { join } from "path";
 import { v4 as uuidv4 } from 'uuid'
 import { getServerSession } from "next-auth";
-import { authOptions } from "../auth/[...nextauth]/route";
+import { authOptions } from "@/lib/authOptions";
 
 export async function POST(req: NextRequest) {
   const session = await getServerSession(authOptions);
