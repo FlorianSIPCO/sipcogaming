@@ -3,9 +3,9 @@ import { getProductById } from "@/lib/products/getService";
 import { updateProduct } from "@/lib/products/updateService";
 import { deleteProduct } from "@/lib/products/deleteService";
 
-export async function GET(req: NextRequest, context: { params: { id: string } }) {
+export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
   try {
-    const product = await getProductById(context.params.id);
+    const product = await getProductById(params.id);
     if (!product) return NextResponse.json({ error: "Produit introuvable" }, { status: 404 });
 
     return NextResponse.json(product, { status: 200 });
@@ -14,10 +14,10 @@ export async function GET(req: NextRequest, context: { params: { id: string } })
   }
 }
 
-export async function PUT(req: NextRequest, context: { params: { id: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
   try {
     const body = await req.json();
-    const updatedProduct = await updateProduct(context.params.id, body);
+    const updatedProduct = await updateProduct(params.id, body);
     return NextResponse.json(updatedProduct, { status: 200 });
   } catch (error) {
     return NextResponse.json({ error: "Erreur lors de la mise à jour du produit" }, { status: 400 });
