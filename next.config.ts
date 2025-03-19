@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
 
-const ngrokUrl = process.env.NEXT_PUBLIC_NGROK_URL || "";
-
 const nextConfig: NextConfig = {
   output: "standalone",
   images: {
@@ -12,10 +10,10 @@ const nextConfig: NextConfig = {
         port: "3000",
         pathname: "/uploads/**",
       },
-    ],
-    domains: [
-      "localhost", 
-      ...(ngrokUrl ? [new URL(ngrokUrl).hostname] : [])
+      {
+        protocol: "https",
+        hostname: "**",
+      }
     ],
   }
 };
