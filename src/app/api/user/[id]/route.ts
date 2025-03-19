@@ -5,7 +5,11 @@ import { getUserById } from "@/lib/users/getService";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 
-export async function GET(req: NextRequest, context: any) {
+interface ContextParams {
+  params: { id: string}
+}
+
+export async function GET(req: NextRequest, context: ContextParams) {
   const session = await getServerSession(authOptions);
 
   if (!session) {
@@ -37,7 +41,8 @@ export async function GET(req: NextRequest, context: any) {
       return NextResponse.json({ error: "Utilisateur non trouvé" }, { status: 404 });
     }
     return NextResponse.json(user, { status: 200 });
-  } catch (error) {
+  } catch (error: unknown) {
+    console.error("Erreur lors de la récupération de l'utilisateur:", error);
     return NextResponse.json({ error: "Erreur serveur" }, { status: 500 });
   }
 }
@@ -74,6 +79,7 @@ export async function PUT(req: NextRequest, context: any) {
     return NextResponse.json({ user: updatedUser, message: "Utilisateur mis à jour avec succès"}, { status: 200 });
 
   } catch (error) {
+    console.error("Erreur lors de la mise à jour de l'utilisateur:", error);
     return NextResponse.json({ error: "Erreur lors de la mise à jour" }, { status: 400 });
     
   }
@@ -96,6 +102,7 @@ export async function DELETE(req: NextRequest, context: any) {
     const response = await deleteUser(id);
     return NextResponse.json(response, { status: 200 });
   } catch (error: unknown) {
+    console.error("Erreur lors de la suppression de l'utilisateur:", error);
     return NextResponse.json({ error: "Erreur lors de la suppression" }, { status: 400 });
   }
 }

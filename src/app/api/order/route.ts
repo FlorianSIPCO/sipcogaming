@@ -20,6 +20,7 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(order);
   } catch (error) {
+    console.error("Erreur lors de la récupération de la commande:", error);
     return NextResponse.json({ error: "Erreur lors de la récupération de la commande." }, { status: 500 });
   }
 }

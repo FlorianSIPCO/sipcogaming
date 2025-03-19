@@ -17,6 +17,7 @@ const CreateProductModal: React.FC<CreateProductModalProps> = ({ onClose }) => {
   });
 
   const [imageFiles, setImageFiles] = useState<File[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [imagePaths, setImagePaths] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 

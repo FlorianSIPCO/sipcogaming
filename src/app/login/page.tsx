@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn, getSession, useSession } from "next-auth/react";
+import { signIn, getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
@@ -10,14 +10,27 @@ import Link from "next/link";
 import { Eye, EyeOff } from "lucide-react";
 import SpinnerButtons from "../components/SpinnerButtons/SpinnerButtons";
 
+interface FormData {
+  firstname?: string;
+  lastname?: string;
+  phoneNumber?: string;
+  email: string;
+  password: string;
+  confirmPassword?: string;
+  dateOfBirth?: string;
+  street?: string;
+  zipCode?: string;
+  city?: string;
+  country?: string;
+}
+
 const LoginPage = () => {
-  const { register, handleSubmit, watch, reset } = useForm();
+  const { register, handleSubmit, watch, reset } = useForm<FormData>();
   const [loading, setLoading] = useState(false);
   const [isRegistering, setIsRegistering] = useState(false);
   const router = useRouter();
   const [showPasswordCriteria, setShowPasswordCriteria] = useState(false);
   const [DateFormat, setDateFormat] = useState('')
-  const { data: session } = useSession();
 
   // Ecoute les valeurs du formulaire
   const password = watch("password", "");
@@ -57,7 +70,7 @@ const LoginPage = () => {
   }
 
   // Logique de connexion
-  const handleLogin = async (data: any) => {
+  const handleLogin = async (data: FormData) => {
     setLoading(true);
   
     try {
@@ -108,6 +121,13 @@ const LoginPage = () => {
         router.push("/dashboard/client");
       }
     } catch (error) {
+      let errorMessage = "Erreur lors de la connexion";
+
+      if (error instanceof Error) {
+        errorMessage = error.message;
+      }
+  
+      console.error("Erreur lors de la connexion :", errorMessage);
       toast.error('Erreur lors de la connexion');
     } finally {
       setLoading(false);
@@ -117,7 +137,7 @@ const LoginPage = () => {
   
 
   // Logique d'inscription
-  const handleRegister = async (data: any) => {
+  const handleRegister = async (data: FormData) => {
     setLoading(true);
 
     try {
@@ -128,7 +148,7 @@ const LoginPage = () => {
       }
 
       // Convertir la date de naissance en format YYYY-MM-DD
-      const formattedDate = dateOfBirth.split("-").reverse().join("-");
+      const formattedDate = dateOfBirth ? dateOfBirth.split("-").reverse().join("-") : "";
   
       // Inscription
         const res = await fetch("/api/auth/register", {
@@ -144,6 +164,13 @@ const LoginPage = () => {
         toast.success("Inscription réussie ! Connectez-vous");
         setIsRegistering(false);
       } catch (error) {
+        let errorMessage = "Une erreur est survenue";
+
+        if (error instanceof Error) {
+          errorMessage = error.message;
+        }
+    
+        console.error("Une erreur est survenue :", errorMessage);
         toast.error("Une erreur est survenue");
       } finally {
       setLoading(false);

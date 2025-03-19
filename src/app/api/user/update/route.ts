@@ -4,6 +4,14 @@ import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
+interface UserUpdateData {
+  firstname?: string;
+  lastname?: string;
+  phoneNumber?: string;
+  email?: string;
+  password?: string;
+}
+
 export async function PUT(req: NextRequest) {
   const session = await getServerSession(authOptions);
   if (!session) {
@@ -21,7 +29,7 @@ export async function PUT(req: NextRequest) {
       return NextResponse.json({ error: "Utilisateur introuvable" }, { status: 404 });
     }
 
-    let updatedData: any = {
+    const updatedData: Partial<UserUpdateData> = {
       firstname,
       lastname,
       phoneNumber,
