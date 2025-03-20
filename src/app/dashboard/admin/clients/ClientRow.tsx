@@ -71,6 +71,7 @@ const ClientRow: React.FC<ClientRowProps> = ({ client }) => {
           </button>
         </td>
       </tr>
+
       {isEditing && ReactDOM.createPortal(<EditClientModal client={client} onClose={() => setIsEditing(false)} />, document.body)}
       {isDeleting && ReactDOM.createPortal(<DeleteConfirmationModal onConfirm={deleteClient} onCancel={() => setIsDeleting(false)} />, document.body)}
     </>

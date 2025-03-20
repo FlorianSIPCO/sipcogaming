@@ -28,7 +28,7 @@ const ProductTable = () => {
   }, []);
 
   return (
-    <div className="bg-gray-800 p-6 rounded-lg">
+    <div className="w-full bg-gray-800 p-6 rounded-lg">
       <table className="w-full text-white">
         <thead>
           <tr className="border-b border-gray-600">

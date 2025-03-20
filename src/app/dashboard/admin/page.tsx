@@ -63,8 +63,8 @@ export default function AdminDashboard() {
         </div>
       ) : (
         <>
-          <h1 className="flex flex-col items-center lg:items-start text-center lg:text-left text-3xl font-bold">Bienvenue {user?.firstname} 👋</h1>
-          <p className="text-gray-400 mt-2">Vous êtes connecté en tant qu'administrateur.</p>
+          <h1 className="flex flex-col items-center lg:items-start text-center lg:text-left text-2xl lg:text-3xl font-bold">Bienvenue {user?.firstname} 👋</h1>
+          <p className="text-gray-400 mt-2 text-center lg:text-left">Vous êtes connecté en tant qu'administrateur.</p>
 
           {/* Chargement des stats */}
           {loadingStats ? (
@@ -72,7 +72,7 @@ export default function AdminDashboard() {
               <GamingLoader />
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 text-center">
               <StatCard 
                 title="Clients" 
                 value={stats?.clientCount ?? 0} 
@@ -105,9 +105,9 @@ export default function AdminDashboard() {
   // Composant pour afficher une carte statistique
   const StatCard = ({ title, value, color, icon, onClick }: { title: string; value: number; color: string; icon: JSX.Element; onClick: () => void; }) => {
   return (
-    <div className={`p-6 ${color} text-white rounded-lg shadow-lg`} onClick={onClick}>
+    <div className={`p-6 ${color} text-white rounded-lg shadow-lg flex flex-col items-center`} onClick={onClick}>
       {icon}
-      <h2 className="text-2xl font-semibold">{title}</h2>
+      <h2 className="text-2xl font-semibold mt-2">{title}</h2>
       <p className="text-4xl font-bold mt-2">{value}</p>
     </div>
   );

@@ -10,7 +10,7 @@ const ProductsPage = () => {
 
   return (
     <div className="text-white">
-      <h1 className="text-3xl font-bold mb-6">Gestion des Produits</h1>
+      <h1 className="text-center lg:text-left text-2xl lg:text-3xl font-bold mb-6">Gestion des Produits</h1>
       <button 
         onClick={() => setIsModalOpen(true)}
         className="bg-blue-500 px-4 py-2 mb-5 cursor-pointer rounded-md text-white hover:bg-blue-600"

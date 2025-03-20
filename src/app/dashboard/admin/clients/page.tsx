@@ -22,7 +22,7 @@ const ClientsPage = () => {
 
   return (
     <div className="text-white">
-      <h1 className="text-3xl font-bold mb-6">Gestion des Clients</h1>
+      <h1 className="text-center lg:text-left text-2xl lg:text-3xl font-bold mb-6">Gestion des Clients</h1>
       <ClientTable clients={clients} />
     </div>
   );

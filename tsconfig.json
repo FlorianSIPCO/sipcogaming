@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/admin/clients/ClientTable.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/dashboard/admin/clients/ClientTable.jsx", "src/app/dashboard/admin/personnel/AdminTable.jsx"],
   "exclude": ["node_modules"]
 }
