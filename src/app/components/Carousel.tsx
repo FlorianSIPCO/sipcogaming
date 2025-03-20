@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const slides = [
   {
@@ -125,9 +126,9 @@ const Carousel = () => {
         <h3 className="text-lg md:text-xl text-red-500">{slides[index].topic}</h3>
         <p className="mt-4 text-sm md:text-base">{slides[index].description}</p>
         <div className="mt-6 flex justify-center gap-4">
-          <button className="px-4 py-2 md:px-6 pd:py-3 border cursor-pointer border-red-500 text-white rounded-lg hover:scale-105 transition hover:bg-red-500 hover:text-white">
+          <Link href='/products' className="px-4 py-2 md:px-6 pd:py-3 border cursor-pointer border-red-500 text-white rounded-lg hover:scale-105 transition hover:bg-red-500 hover:text-white">
             Consulter nos produits
-          </button>
+          </Link>
         </div>
       </div>
 
