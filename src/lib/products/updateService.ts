@@ -8,6 +8,7 @@ interface ProductUpdateData {
   images?: string[];
   specs?: string[];
   description?: string;
+  ratings?: Record<string, number>;
   stock?: number;
 }
 

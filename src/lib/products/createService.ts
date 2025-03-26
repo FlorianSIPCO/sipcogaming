@@ -8,6 +8,7 @@ interface ProductData {
   images: string[];
   specs: { key: string; value: string }[];
   description: string;
+  ratings?: Record<string, number>;
   stock: number;
 }
 
@@ -25,6 +26,7 @@ export const createProduct = async (productData: ProductData) => {
         price: productData.price,
         images: productData.images,
         specs: formattedSpecs,
+        ratings: productData.ratings ?? undefined,
         description: productData.description,
         stock: productData.stock,
       },

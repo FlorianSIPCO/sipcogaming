@@ -2,19 +2,25 @@
 
 import { useState } from "react";
 import ProductDetailsModal from "./ProductDetailsModal";
-import { Trash2, Eye } from "lucide-react";
+import { Trash2, Eye, Edit } from "lucide-react";
 import ReactDOM from "react-dom";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import EditProductModal from "./EditProductModal";
 
 interface Product {
   id: string;
   name: string;
   price: number;
   stock: number;
+  description: string;
+  images: string[];
+  specs: { key: string; value: string }[];
 }
+
 
 const ProductRow: React.FC<{ product: Product }> = ({ product }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [isDeleting, setIsDeleting] = useState(false);
 
   const deleteProduct = async () => {
@@ -36,6 +42,9 @@ const ProductRow: React.FC<{ product: Product }> = ({ product }) => {
           <button onClick={() => setIsModalOpen(true)} className="text-blue-400 hover:text-blue-600">
             <Eye size={18} />
           </button>
+          <button onClick={() => setIsEditing(true)} className="text-blue-400 hover:text-blue-600">
+            <Edit size={18} />
+          </button>
           <button onClick={() => setIsDeleting(true)} className="text-red-400 hover:text-red-600">
             <Trash2 size={18} />
           </button>
@@ -44,6 +53,7 @@ const ProductRow: React.FC<{ product: Product }> = ({ product }) => {
 
       {/* Affichage de la modal au clic */}
       {isModalOpen && ReactDOM.createPortal(<ProductDetailsModal productId={product.id} onClose={() => setIsModalOpen(false)} />, document.body)}
+      {isEditing && ReactDOM.createPortal(<EditProductModal productId={product.id} onClose={() => setIsEditing(false)} />, document.body)}
       {isDeleting && ReactDOM.createPortal(<DeleteConfirmationModal onConfirm={deleteProduct} onCancel={() => setIsDeleting(false)} />, document.body)}
     </>
   );

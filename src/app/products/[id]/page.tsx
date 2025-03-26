@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { X } from "lucide-react";
+import { X, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import GamingLoader from "@/app/components/GamingSpinner/GamingLoader";
@@ -15,6 +15,8 @@ interface Product {
     images: string[];
     specs: string[];
     description: string;
+    ratings?: Record<string, number>;
+    stock: number;
 }
 
 const ProductDetail = () => {
@@ -102,6 +104,30 @@ const ProductDetail = () => {
             <h1 className="text-3xl font-bold">{product.name}</h1>
             <p className="text-red-500 font-bold text-2xl mt-2">{product.price} €</p>
 
+            {/* Notations par usage */}
+            {product.ratings && (
+              <div className="mt-4">
+                <h3 className="text-xl font-semibold mb-2">Usage recommandé :</h3>
+                <ul className="space-y-2 text-gray-300">
+                  {Object.entries(product.ratings).map(([usage, stars]) => (
+                    <li key={usage} className="flex items-center gap-2">
+                      <span className="capitalize">{usage} :</span>
+                      <div className="flex gap-1 text-yellow-400">
+                        {Array.from({ length: 3 }).map((_, i) => (
+                          <Star 
+                            key={i}
+                            size={18}
+                            fill={i < Number(stars) ? "#facc15" : "none"}
+                            stroke="#facc15"
+                          />
+                        ))}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Caractéristiques */}
             <h2 className="text-xl font-semibold mt-4">Caractéristiques :</h2>
             <ul className="list-disc pl-6 mt-2 text-gray-300">
@@ -110,19 +136,28 @@ const ProductDetail = () => {
                 ))}
             </ul>
 
-            {/* Bouton Ajouter au panier */}
-            <button 
-                className="mt-6 px-6 py-3 bg-red-500 cursor-pointer text-white rounded-lg hover:scale-105 transition"
-                onClick={() => addToCart({
-                    id: product.id,
-                    name: product.name,
-                    price: product.price,
-                    image: product.images[0] || "images/logo.jpg",
-                    quantity: 1
-                })}
-            >
-                Ajouter au panier
-            </button>
+            <div className="flex flex-col-reverse lg:items-center lg:flex-row">
+              {/* Bouton Ajouter au panier */}
+              <button 
+                  className="mt-6 px-6 py-3 bg-red-500 cursor-pointer text-white rounded-lg hover:scale-105 transition"
+                  onClick={() => addToCart({
+                      id: product.id,
+                      name: product.name,
+                      price: product.price,
+                      image: product.images[0] || "images/logo.jpg",
+                      quantity: 1
+                  })}
+              >
+                  Ajouter au panier
+              </button>
+
+              {/* Stock disponible */}
+              <p className="mt-6 ml-6 text-lg font-bold text-white">
+                Stock disponible : 
+                <span className="text-white font-semibold ml-1.5">{product.stock}</span>
+              </p>
+
+            </div>
             </div>
         </motion.div>
 
