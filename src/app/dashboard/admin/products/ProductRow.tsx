@@ -15,6 +15,7 @@ interface Product {
   description: string;
   images: string[];
   specs: { key: string; value: string }[];
+  ratings?: Record<string, number>;
 }
 
 

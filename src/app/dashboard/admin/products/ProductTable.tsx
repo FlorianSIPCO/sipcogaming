@@ -8,6 +8,10 @@ interface Product {
   name: string;
   price: number;
   stock: number;
+  description: string;
+  images: string[];
+  specs: { key: string; value: string }[];
+  ratings?: Record<string, number>;
 }
 
 const ProductTable = () => {
