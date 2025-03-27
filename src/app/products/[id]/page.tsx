@@ -3,10 +3,11 @@
 import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
-import { X, Star } from "lucide-react";
+import { X, Star, Mail } from "lucide-react";
 import { motion } from "framer-motion";
 import { useCart } from "@/context/CartContext";
 import GamingLoader from "@/app/components/GamingSpinner/GamingLoader";
+import LeadContactModal from "@/app/components/LeadContactModal";
 
 interface Product {
     id: string;
@@ -28,6 +29,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [contactModalOpen, setContactModalOpen] = useState(false);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -150,6 +152,12 @@ const ProductDetail = () => {
               >
                   Ajouter au panier
               </button>
+              <button 
+                  className="mt-6 ml-2 px-6 py-3 bg-blue-700 cursor-pointer text-white rounded-lg hover:scale-105 transition"
+                  onClick={() => setContactModalOpen(true)}
+              >
+                  <Mail />
+              </button>
 
               {/* Stock disponible */}
               <p className="mt-6 ml-6 text-lg font-bold text-white">
@@ -173,6 +181,9 @@ const ProductDetail = () => {
             </div>
         )}
         </section>
+        {contactModalOpen && (
+          <LeadContactModal productName={product.name} onClose={() => setContactModalOpen(false)} />
+        )}
     </div>
   );
 };
