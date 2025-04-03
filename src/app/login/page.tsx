@@ -31,6 +31,7 @@ const LoginPage = () => {
   const router = useRouter();
   const [showPasswordCriteria, setShowPasswordCriteria] = useState(false);
   const [DateFormat, setDateFormat] = useState('')
+  const [hasAcceptedTerms, setHasAcceptedTerms] = useState(false);
 
   // Ecoute les valeurs du formulaire
   const password = watch("password", "");
@@ -325,12 +326,30 @@ const LoginPage = () => {
                   </li>
                 </ul>
               )}
+
+              {/* Checkbox RGPD CGU */}
+              <div className="flex items-start space-x-2 text-sm text-gray-300 mt-2">
+                <input
+                  type="checkbox"
+                  id="terms"
+                  checked={hasAcceptedTerms}
+                  onChange={() => setHasAcceptedTerms(!hasAcceptedTerms)}
+                  className="mt-1"
+                  required
+                />
+                <label htmlFor="terms">
+                  J'ai lu et j'accepte les{" "}
+                  <Link href="/cgu" className="text-red-500 underline hover:text-red-400">
+                    conditions générales d'utilisation
+                  </Link>
+                </label>
+              </div>
             </>
           )}
 
           <motion.button
             type="submit"
-            disabled={loading || (isRegistering && !allCriteriaMet)}
+            disabled={loading || (isRegistering && (!allCriteriaMet || !hasAcceptedTerms))}
             className="w-full bg-red-500 py-2 rounded-md font-bold hover:scale-105 transition"
             whileTap={{ scale: 0.95 }}
           >

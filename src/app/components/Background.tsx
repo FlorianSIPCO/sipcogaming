@@ -5,9 +5,9 @@ const Ripples = () => {
   return (
     <div className="absolute inset-0 flex items-center justify-center overflow-hidden">
       {[...Array(5)].map((_, i) => {
-          const randomScale = Math.random() * 0.5 + 3.5; // Taille de l'expansion aléatoire
+          const randomScale = Math.random() * 0.5 + 8.5; // Taille de l'expansion aléatoire
           const randomDuration = Math.random() * 0.8 +2.5; // Variation de la durée
-          const randomBlur = Math.random() * 8 + 2; // Flou aléatoire
+          const randomBlur = Math.random() * 6 + 0.5; // Flou aléatoire
 
         return (
             <motion.div

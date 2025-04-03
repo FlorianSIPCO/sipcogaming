@@ -22,11 +22,9 @@ export async function POST(req: NextRequest) {
       process.env.STRIPE_WEBHOOK_SECRET as string
     );
 
-    console.log("Webhook Stripe reçu :", event.type) /////// LOG
 
     if (event.type === "checkout.session.completed") {
       const session = event.data.object as Stripe.Checkout.Session;
-      console.log("Session Stripe :", session) /////////////////// LOG
       const userId = session.metadata?.userId;
 
       if (!userId) {

@@ -1,0 +1,290 @@
+[
+    {
+      "id": 1,
+      "title": "1. Objet",
+      "content": [
+        "La société SIPCO (ci-après : la « Société ») est une entreprise qui propose à ses clients, professionnels ou particuliers, diverses prestations, notamment : la vente et la location de matériel informatique, l’installation et la gestion de réseaux, des services de cybersécurité, le développement et la maintenance de sites internet, l’hébergement, le développement et la maintenance de logiciels, ainsi que des prestations de téléphonie (ci-après : les « Services »).",
+        "Les présentes conditions générales s'appliquent sans restriction ni réserve à toute commande de Services auprès de la Société.",
+        "Elles ont pour objet de définir les modalités et conditions de fourniture des Services au bénéfice du client identifié dans le(s) devis visé(s) à l'article 2 (ci-après : le « Client »).",
+        "Elles constituent, avec le(s) devis (ci-après : le « Devis »), un ensemble contractuel indissociable (ci-après : le « Contrat »). En cas de contradiction, les dispositions du (des) Devis prévalent sur les présentes conditions générales. En cas de contradiction entre différents Devis, le document le plus récent prévaut sur les plus anciens.",
+        "Le Contrat prévaut sur toutes autres conditions générales ou particulières non expressément agréées par la Société."
+      ]
+    },
+    {
+      "id": 2,
+      "title": "2. Commande des Services et acceptation des conditions générales",
+      "content": [
+        "2.1. Les services peuvent être commandés par email, téléphone ou courrier aux coordonnées indiquées en entête des présentes. La société adressera au Client un récapitulatif de la commande de Services ainsi que le prix correspondant (ci-après le « Devis »).",
+        "2.2. Sauf mention contraire dans le Devis, celui-ci constitue une offre de vente valable pendant 1 (un) mois calendaires à compter de son envoi ; A défaut de validation par le Client dans ce délai, l'offre de vente sera caduque. Le Client qui souhaite accepter l'offre doit ainsi valider le Devis dans le délai, ci-dessus par tout moyen écrit utile. Cette validation emporte acceptation des présentes conditions générales. Une fois le Devis validé, le Client pourra, en fonction de ses processus internes, émettre un bon de commande auprès de la Société.",
+        "2.3. L'annexe au Devis, si applicable, détaillera la proposition commerciale d'accompagnement conformément aux modalités convenues entre les parties."
+      ]
+    },
+    {
+      "id": 3,
+      "title": "3. Description des services",
+      "content": [
+          "Les Services fournis par la Société sont intégralement détaillés dans le Devis et ses éventuelles annexes.",
+          "** 3.1 Développement de sites internet **",
+          "Les prestations relatives à la création, la refonte, la maintenance et/ou l'hébergement de site internet sont plus précisément détaillées dans le Devis correspondant.",
+          "Le Devis et ses annexes préciseront les modalités de fourniture et de livraison des prestations, ce que le Client reconnaît et accepte.",
+          "Sauf mention contraire dans le Devis et sous réserve de la communication par le Client des éléments nécessaires à la réalisation des Services, la livraison d'un site internet interviendra entre 30 et 120 jours à compter de la signature du Devis.",
+          "La livraison du site internet ne doit pas être confondue avec sa mise en ligne effective, laquelle dépend de la collaboration et la validation effective du Client. Seul le Client est responsable de la mise en ligne du site par la Société.",
+          "La Société pourra s'exonérer de sa responsabilité en cas d'absence de collaboration, faute, négligence du Client ou encore en cas de force majeure.",
+          "Il appartient au Client de porter à la connaissance de la Société, dès la signature du Devis, toutes les informations relatives à ses besoins. Postérieurement à l'émission du Devis, le Client ne pourra pas revenir sur ses choix et/ou faire évoluer la portée des Services sans l'accord écrit de la Société.",
+          "A compter de la livraison d'un site internet, le Client disposera d'un délai ferme de 7 (sept) jours pour formuler toute réserve au regard des spécificités convenues dans le Devis. A défaut de réserves formulées dans ce délai, le Client sera considéré comme avoir tacitement accepté la livraison du site.",
+          "Si le Client souhaite bénéficier d'une maintenance corrective et/ou évolutive, les parties concluront, par accord séparé, un nouveau Devis en ce sens et fixant le TJM de la Société (sauf si déjà prévu dans le cadre d'un devis préalable).",
+          "En cas de nécessité, la Société se réserve la possibilité de limiter ou de suspendre l'accès au site internet du Client pour précéder à toute opération de maintenance et/ou d'amélioration. Dans cette hypothèse, la Société s'engage à informer à l'avance le Client de ces opérations de maintenance et/ou d'amélioration, dans un délai raisonnable, par tous moyens utiles.",
+          "** 3.2 Hébergements **",
+          "Si effectivement souscrit par le Client, la Société s'engage à assurer, dans les termes d'une obligation de moyens, l'hébergement du site internet du Client conformément aux usages de la profession et à l'état de l'art, sur ses propres serveurs ou par un prestataire d'hébergement professionnel, exerçant son activité conformément aux usages de la profession et à l'état de l'art.",
+          "Dans ce cadre, la Société s'engage à fournir au Client des capacités de stockage et de traitement suffisantes dans le cadre des Services, conformément aux usages de la profession et à l'état de l'art.",
+          "La société s'engage à mettre en œuvre l'ensemble des moyens techniques, conformes à l'état de l'art, nécessaires pour assurer la sécurité et l'accès aux Services, portant sur la protection et la surveillance des infrastructures, le contrôle de l'accès physique et/ou immatériel auxdites infrastructures, ainsi que sur la mise en œuvre des mesures de détection, de prévention et de récupération pour protéger les serveurs d'actes malveillants.",
+          "La Société s'engage également à prendre toutes précautions utiles, au regard de la nature des données et des risques présentés par les traitements automatisés de données mis en œuvre pour les besoins des Services, pour préserver la sécurité des données, et notamment empêcher qu'elles soient déformées, endommagées ou que des tiers non autorisés y aient accès.",
+          "En cas de dysfonctionnement ou de panne, la Société fera ses meilleurs efforts pour remettre en ligne, sous 72H, le site internet du Client. A ce titre, la Société utilisera la dernière sauvegarde connue et viable.",
+          "Si le Client n'a pas souscrit à l'hébergement du site par la Société, celui-ci sera responsable du site internet ainsi livré et la Société n'assurera pas de sauvegarde ou de maintenance de sécurité.",
+          "Dans ce cas, il sera de la responsabilité du Client de fournir à la Société les codes d'accès relatifs à l'hébergement tiers souscrit (et au nom de domaine) afin de permettre à la Société de réaliser les Services. A défaut, la Société ne sera pas en mesure de réaliser les Services, ce que le Client reconnaît et accepte.",
+          "** 3.3 Maintenance corrective **",
+          "Si effectivement souscrit au Devis, la Société s'engage, pendant la durée des présentes, à corriger les anomalies relevées sur le site internet du Client, entendus comme un bogue ou dysfonctionnement de celui-ci (ci-après : les « Anomalies »).",
+          "Les anomalies se répartissent en trois catégories :",
+          "- « Anomalie Majeure » : Anomalie rendant impossible l'utilisation totale du site internet ;",
+          "- « Anomalie Moyenne » : Anomalie diminuant l'utilisation du site internet en empêchant l'utilisation de certaines fonctionnalités essentielles ;",
+          "- « Anomalie Mineure » : toute Anomalie mettant le Client dans l'impossibilité d'utiliser une ou plusieurs fonctionnalités non essentielles du site internet.",
+          "Le Client pourra remonter à la Société, par tous moyens convenus entre les Parties, toutes les Anomalies en s'efforçant de donner le maximum d'informations, notamment les difficultés rencontrées et les circonstances dans lesquelles elles sont intervenues, de nature à permettre à la Société de caractériser l'incident. La réception de cette notification vaut signalement d'une Anomalie.",
+          "La Société procèdera alors au diagnostic de l'Anomalie, en vérifiant notamment si elle a pour origine le site internet et, le cas échéant, procédera à la qualification de l'Anomalie en Anomalie Majeure, Moyenne ou Mineure. La Société informera le Client par tous moyens des résultats de ce diagnostic dans les meilleurs délais (ci-après : la « Date du Diagnostic »).",
+          "S'il s'avère que l'Anomalie a pour origine le site internet, la Société s'engage à mobiliser les moyens nécessaires pour corriger dans les délais suivants : ",
+          "- Anomalie Majeure : dans les 24 heures suivant la Date du Diagnostic ;",
+          "- Anomalie Moyenne : dans les 7 jours suivant la Date du Diagnostic ;",
+          "- Anomalie Mineure : dans les 30 jours suivant la Date du Diagnostic.",
+          "Ces délais s'effectuent dans le cadre des plages d'intervention de la Société, à savoir entre 8h00 et 19h00 pendant les jours ouvrés. Un jour ouvré s'entend d'une période ininterrompue de 11 (onze) heures, du lundi au vendredi entre 8h00 et 19h00. Tout délai ayant débuté au cours de cette tranche horaire expirera à la même heure le dernier jour ouvré du délai.",
+          "Le Client est informé que pour toute demande d'intervention de la Société en dehors des horaires précités (astreinte), le taux journalier moyen de la Société sera fixé à 500€ HT. La Société adressera au Client toute facture relative aux périodes d'astreinte selon les conditions définies à l'article Conditions financières des présentes.",
+          "Une fois l'Anomalie définitivement corrigée, la Société adressera au Client un compte rendu écrit de son intervention, par tous moyens. La date d'envoi de ce compte rendu constitue sa date de fin d'intervention.",
+          "Par ailleurs, il est rappelé que la responsabilité de la Société ne saurait en aucun cas être engagée en cas de perte de données ou d'informations au cours des opérations de maintenance et/ou d'évolution, sauf fautes directement et strictement imputable à la Société. Il appartient ainsi au Client de mettre en œuvres toutes les mesures nécessaires pour assurer la sauvegarde et l'intégrité de ses propres données.",
+          "**3.4 Développement et maintenance de logiciels**",
+          "La Société propose la conception, le développement, l’intégration et la maintenance de logiciels métier personnalisés.",
+          "Les modalités de développement (technologies utilisées, livrables attendus, planning, etc.) sont définies dans le Devis et/ou ses annexes.",
+          "Le Client s’engage à fournir l’ensemble des informations nécessaires à la bonne compréhension de ses besoins. Toute évolution du périmètre après signature du Devis pourra donner lieu à un avenant tarifaire.",
+          "La Société assure également la maintenance corrective et évolutive des logiciels développés ou existants, sous réserve d’un contrat ou devis spécifique. Les conditions d’intervention sont identiques à celles définies en 3.3.",
+          "**3.5 Vente et location de matériel informatique**",
+          "La Société propose la vente et/ou la location de matériel informatique (postes de travail, serveurs, périphériques, etc.).",
+          "Les caractéristiques des matériels, conditions de garantie, livraison et SAV sont précisées dans le Devis. Pour la location, une durée ferme et des modalités de restitutions sont également prévues.",
+          "Le matériel reste la propriété de la Société jusqu’au complet paiement ou jusqu’à la restitution en cas de location. Tout dommage, perte ou vol engage la responsabilité du Client.",
+          "**3.6 Installation et gestion de réseaux informatiques**",
+          "La Société assure l’étude, l’installation, la configuration, la sécurisation et la maintenance de réseaux informatiques (câblage, commutateurs, routeurs, bornes Wi-Fi, etc.).",
+          "Le périmètre exact des interventions est défini dans le Devis. Le Client s’engage à permettre un accès aux locaux concernés selon les modalités convenues.",
+          "La Société intervient dans le cadre d’une obligation de moyens et ne saurait être tenue pour responsable des défaillances dues à des éléments extérieurs (réseau Internet, fournisseur tiers, matériels non fournis, etc.).",
+          "**3.7 Cybersécurité**",
+          "La Société propose des prestations d’analyse, d’audit, de conseil et de mise en œuvre de solutions de cybersécurité (pare-feux, antivirus, MFA, sauvegarde, sensibilisation, etc.). Les actions mises en place dépendent de la typologie du système d’information du Client. Une analyse préalable pourra être réalisée afin de proposer un plan de sécurisation adapté.",
+          "Le Client reste seul responsable de l’usage de ses systèmes et de la mise en œuvre des recommandations transmises par la Société, sauf en cas d’intervention sous contrat d’infogérance signé."
+      ]
+    },
+    {
+      "id": 4,
+      "title": "4. Durée des services",
+      "content": [
+        "Selon les Services souscrits, les tarifs sont reproduits dans le Devis correspondant.",
+        "Pour les prestations de maintenance et d'hébergement, les Services peuvent être souscrits sous forme d'abonnement.",
+        "Le cas échéant, l'abonnement débute au jour de la signature du Devis, sous réserve du paiement du prix conformément à l'article « Conditions financières », pour une durée initiale indiquée sur le Devis (ci-après : « Période Initiale »).",
+        "Par défaut et en l'absence d'indication contraire sur le Devis, la Période Initiale de l'abonnement est d'un (1) an.",
+        "Il se renouvelle ensuite tacitement, pour des périodes successives de même durée que la Période Initiale (ci-après désignées, avec la Période Initiale, les « Périodes »), de date à date, sauf dénonciation effectuée par la Société ou par le Client au plus tard trois (3) mois avant la fin de la Période concernée.",
+        "La dénonciation de l'abonnement par le Client s'effectue par l'envoie d'une LRAR à la Société aux coordonnées suivantes : SIPCO - 12 rue des artisans, 35500 Vitré.",
+        "La dénonciation de l'abonnement par la Société s'effectue par l'envoie d'une LRAR au Client.",
+        "Toute période d'abonnement entamée est due dans son intégralité."
+      ]
+    },
+    {
+      "id": 5,
+      "title": "5. Conditions financières",
+      "content": [
+        "** 5.1 Prix des Services **",
+        "Les prix des Services sont indiqués sur le Devis.",
+        "Sauf mentions contraire, ils sont exprimés en Euros et hors taxes.",
+        "La Société se réserve le droit, à sa libre discrétion et selon des modalités dont elle sera seule juge, de proposer des offres promotionnelles ou réductions de prix.",
+        "**5.2 Modalités de paiement des Services **",
+        "Sauf mention contraire dans le Devis, les Services relatifs au référencement ou à la création de site internet sont payable comme suit :",
+        "- 30 % du montant total des Services lors de la signature des présentes ;",
+        "- 70 % du montant total des Services lors de la livraison du site internet.",
+        "Les Services d'hébergement sont facturés sur la base du TJM indiqué au Devis et font l'objet d'un règlement en amont de la prestation souhaitée.",
+        "Les Services sur abonnement font l'objet de virements effectués par le Client à compter de la signature du Devis puis tous les 1er du mois suivant.",
+        "Le paiement du prix des Services sur abonnement s'effectue par tout moyen et notamment par virement bancaire ou prélèvement automatique.",
+        "Le Client garantit à la Société qu'il dispose des autorisations nécessaires pour utiliser le mode de paiement choisi. Il s'engage à prendre les mesures nécessaires afin que le prélèvement automatique du prix du Forfait puisse être effectué.",
+        "** 5.3 Retards et incidents de paiement **",
+        "Le Client est informé et accepte expressément que tout retard de paiement de tout ou partie d'une somme due à son échéance entraînera automatique, sans préjudice des dispositions de l'article « Sanction des manquements » et dès le jour suivant la date de règlement figurant sur la facture : ",
+        "- La déchéance du terme de l'ensemble des sommes dues par le Client et leur exigibilité immédiate ;",
+        "- La suspension immédiate des Services en cours jusqu'au complet paiement de l'intégralité des sommes dues par le Client ;",
+        "- La facturation au profit de la Société d'un intérêt de retard au taux de 3 (trois) fois le taux de l'intérêt légal, assis sur le montant de l'intégralité des sommes dues par le Client et d'une indemnité forfaitaire de 40 (quarante) euros au titre des frais de recouvrement, sans préjudice d'une indemnisation complémentaire si les frais de recouvrement effectivement exposés sont supérieurs à ce montant."
+      ]
+    },
+    {
+      "id": 6,
+      "title": "6. Droit de rétractation",
+      "content": [
+        "Dans le cas où:",
+        "- Le Client est un particulier,",
+        "- Le Client est un professionnel, (i) qu'il remplit les conditions prévus à l'article L221-3 du Code de la consommation (effectif inférieur ou égal à 5 salariés) et (ii) que la souscription des Services par le Client remplit les critères d'un contrat hors établissement au sens de l'article L221-1 du Code de la consommation,",
+        "... le Client dispose d'un droit de rétractation, pendant un délai de 14 (quatorze) jours à compter de la validation du Devis.",
+        "Il peut exercer ce droit en adressant à la Société aux coordonnées mentionnées en entête des présentes, avant l'expiration du délai susvisé, un formulaire de rétractation, dûment complété, ou toute autre déclaration, dénuée d'ambiguïté, exprimant sa volonté de se rétracter.",
+        "Si le Client a demandé à ce que les Services commencent avant l'expiration du délai de rétractation, en cochant la case à cet effet dans le Devis, il peut exercer son droit de rétractation dans le délai et selon les modalités susvisées. Il sera dans ce cas redevable, envers la Société, du prix des Services, calculé au prorata pour la durée écoulée jusqu'à la communication de sa décision de se rétracter à la Société."
+      ]
+    },
+    {
+      "id": 7,
+      "title": "7. Obligation et responsabilité du Client",
+      "content":[
+        "Sans préjudice des autres obligations prévues au Contrat, le Client s'engage à respecter les obligations qui suivent :",
+        "7.1. Le Client s'engage à collaborer activement et étroitement avec la Société, notamment dans le cadre de la réalisation d'un site internet et dans la définition de ses besoins. A ce titre, il lui appartient d'exprimer ses besoins par tous moyens afin de les porter effectivement à la connaissance de la Société lors de la conclusion des présentes.",
+        "7.2. Le Client s'engage à fournir à la Société tous les documents, éléments, données et informations nécessaires à la réalisation des Services. Plus généralement, le Client s'engage à coopérer activement avec la Société et notamment avec son personnel dédié en vue de la bonne exécution du Contrat.",
+        "7.3. Le Client est seul responsable des documents, éléments, données, informations, formules mathématiques internes, images et contenus divers qu'il fournit à la Société. Il garantit à la Société qu'il est habilité à lui fournir ces derniers et qu'il dispose de tous les droits et autorisations nécessaires à leur exploitation dans le cadre des Services. Il est également seul responsable de leur exactitude, de leur sincérité et de leur exhaustivité.",
+        "7.4. A ce titre et si applicable, le Client doit fournir un libre accès aux locaux qui feront l'objet des Services et à tenir immédiatement informée la Société de tout évènement de nature à affecter la bonne exécution des Services. En conséquence, le Client s'engage à mettre à la disposition de la Société les locaux concernés dans un état tel que la Société ou son personnel puisse exécuter les Services dans des conditions normales",
+        "7.5. Le Client est seul responsable du respect des lois et règlements applicables à son activité et notamment, du respect des mentions légales éventuellement imposées par ceux-ci. En conséquence, le Client ne pourra en aucun cas rechercher la responsabilité ou la garantie de la Société à ce titre.",
+        "7.6. Le Client est seul responsable de l'usage qu'il fait des produits ou Services éventuellement commandés. Il lui appartient de vérifier l'adéquation des produits à ses besoins spécifiques préalablement à l'achat desdits produits, de respecter toute la réglementation applicable.",
+        "7.7. En conséquence, le client reste seul responsable de ses décisions, relations, de son image de marque et de ses communications à l'égard des tiers.",
+        "7.8. Il appartient au Client de mettre à jour régulièrement son site internet afin qu'il soit en conformité avec la réglementation applicable (mention légale, politique de confidentialité, etc.). La responsabilité de la Société ne pourra en aucun cas être recherchée à ce titre.",
+        "7.9. Il garantit en conséquence à la Société qu'il dispose de tous les droits et autorisations nécessaires.",
+        "7.10. Le Client déclare avoir reçu de la Société, préalablement à la signature des présentes, tous conseils, instructions et précisions qui lui sont nécessaires pour souscrire au présent Contrat en toute connaissance de cause, et qu'il a, préalablement aux présentes, suffisamment échangé avec la Société pour s'assurer que le site internet correspond à ses attentes, besoins et contraintes.",
+        "7.11. Plus généralement, le Client s'engage à coopérer activement avec la Société et à l'informer de toutes difficultés liées à ce qui précède."
+      ]
+    },
+    {
+      "id": 8,
+      "title": "8. Obligations et responsabilité de la Société",
+      "content":[
+        "Sans préjudice des autres obligations prévues au Contrat, la Société s'engage à respecter les obligations qui suivent :",
+        "8.1. La Société s'engage à fournir les Services avec diligence et selon les règles de l'art, étant précisé qu'il pèse sur elle une obligation de moyens, à l'exclusion de toute obligation de résultat, ce que le Client reconnaît et accepte expressément.",
+        "8.2. La Société ne fournit au Client aucune garantie quant à l'adaptation des Services à ses besoins, attentes ou contraintes.",
+        "8.3. La Société ne pourra être tenue pour responsable de l'inexécution ou du retard dans l'exécution des Services du fait de circonstances qui lui sont extérieurs ou d'un cas de force majeure, étant expressément précisé que sont considérés comme cas de force majeure, outre ceux qui sont habituellement retenus par la jurisprudence des juridictions française : les intempéries exceptionnelles, les épidémies, les catastrophes naturelles, les incendies et inondations, la foudre, les attentats, les cas de rupture ou de blocage des réseaux de télécommunication, des moyens de transport ou des services postaux y compris du fait de grèves, les dommages provoqués par des virus pour lesquels les moyens de sécurité existant sur le marché ne permettent pas leur éradication, ainsi que toute obligation légale ou réglementaire ou d'ordre public imposée par les autorités compétentes et qui auraient pour effet de modifier substantiellement les présentes conditions générales.",
+        "8.4. La Société ne pourra en aucun cas voir sa responsabilité engagée au titre des sauvegardes de sites internet, notamment en cas d'évènement ou anomalie hors de son contrôle et ayant donné lieu à une remise en ligne dudit site internet.",
+        "8.5. La Société s'engage, dans l'accomplissement des Services, à respecter les lois et règlements en vigueur et à ne pas porter atteinte à l'ordre public.",
+        "8.6. En tout état de cause, la responsabilité susceptible d'être encourue par la Société au titre des présentes est expressément limitée aux seuls dommages directs subis par le Client et ne pourra excéder le montant total du prix payé par celui-ci au titre des Services concernés et tel qu'indiqué dans le Devis."
+      ]
+    },
+    {
+      "id": 9,
+      "title": "9. Propriété intellectuelle relative aux Services",
+      "content":[
+        "Les droits de propriété intellectuelle afférents aux développements réalisés par la Société en exécution des Services, sont cédés au Client de façon pleine et entière, au fur et à mesure de leur livraison, sous réserve du paiement des Services correspondants dans les conditions définies à l'article « Conditions financières ».",
+        "Cette cession est consentie, à titre exclusif, pour toute la durée légale du droit d'auteur, pour le monde entier et aux fins d'exploitation des développements par reproduction et représentation publique sur tous supports et/ou réseaux et par tours moyens, existants ou à venir, prévisibles ou imprévisibles, sans restriction ni réserve, par le Client ou toute personne de son choix.",
+        "Elle comporte également le droit de traduire, arranger, modifier, transformer, adapter et/ou corriger lesdits Développements, seul ou avec la collaboration d'une tierce personne, de les réutiliser totalement ou Partiellement, de les incorporer dans ou fusionner avec tout autre logiciel ou œuvre de l'esprit, ainsi que de transférer à des tiers l'usage ou la propriété de tout au Partie des droits présentement cédés.",
+        "Il est rappelé que le Contrat n'affecte en rien les droits de propriété intellectuelle préexistants de chacune des Parties.",
+        "Les systèmes, logiciels, applications, structures, infrastructures, bases de données, marques, labels, certifications et contenus de toute nature exploités par la Société dans le cadre de son activité et communiqués au Client en vue de la réalisation des Services sont protégés par tous droits de propriété intellectuelle ou droits des producteurs de bases de données en vigueur.",
+        "Tous désassemblages, décompilations, décryptages, extractions, réutilisations, copies et plus généralement, tous actes de reproduction, représentation, diffusion et utilisation de l'un quelconque de ces éléments préexistants, en tout ou partie, lorsque ces actes ne sont pas rendus nécessaires par l'exécution du Contrat, ou qu'ils n'ont pas été préalablement autorisés par la Société sont strictement interdits et pourrait faire l'objet de poursuites judiciaires."
+      ]
+    },
+    {
+      "id": 10,
+      "title": "10. Réglementation sociale",
+      "content":[
+        "Les éventuels salariés de chacune des parties resteront placés sous la direction, l'autorité et la responsabilité exclusives de leurs employeurs respectifs.",
+        "Chaque partie certifie respecter la législation et la réglementation du travail et des relations sociales qui lui est applicable, y compris pour ce que concerne le nombre maximum des heures de travail, la prévention des risques inhérents au poste de travail, la non-discrimination, et l'interdiction du travail dissimulé.",
+        "Par ailleurs, chaque partie s'interdit :",
+        "- D'avoir recours au travail des enfants mineurs et s'engage à ne faire appel qu'à des sous-traitants, prestataires ou fournisseurs respectant eux-mêmes ces dispositions.",
+        "- De se livrer à l'esclavage ou à des pratiques assimilées, comme par exemple la vente et le trafic d'êtres humains, le travail forcé, la main d'œuvre contrainte, le prêt à usure ou la mise en servitude pour le non remboursement de créances ou de dettes",
+        "S'agissant de l'interdiction du travail dissimulé, chaque partie déclare se conformer à la législation fiscale et sociale en vigueur, être à jour du paiement des cotisations sociales et être en mesure de fournir la preuve du respect des différentes obligations applicables en la matière, à la demande de l'autre partie."
+      ]
+    },
+    {
+      "id": 11,
+      "title": "11. Sanctions des manquements",
+      "content":[
+        "En cas de manquement par l'une des parties à l'une quelconque de ses obligations au titre du Contrat, celui-ci sera résolu de plein droit 15 (quinze) jours après réception par la partie défaillante d'une mise en demeure, restée sans effet, par lettre recommandée avec accusé de réception, mentionnant l'intention de faire application de la présente clause, sans préjudice de tous dommages et intérêts qui pourront être réclamés à la partie défaillante."
+      ]
+    },
+    {
+      "id": 12,
+      "title": "12. Confidentialité",
+      "content":[
+        "Chaque partie s'engage à garder strictement confidentiels les documents, éléments, données et informations de l'autre partie dont elle serait destinataire qui seront expressément identifiés par l'autre partie comme étant confidentiels. S'agissant de la Société, les parties conviennent d'ores et déjà expressément que cette obligation de confidentialité couvre les données à caractère personnel que la Société sera amenée à traiter pour le Client dans le cadre des Services. L'ensemble de ces informations est désigné ci-après les « Informations Confidentielles ».",
+        "La partie qui reçoit des Informations Confidentielles s'engage à ne pas divulguer sans accord préalable de l'autre partie, pendant une durée de 5 (cinq) ans à compter de la fin de l'exécution des Services concernés. Elle ne pourra les transmettre à des employés, collaborateurs, stagiaires ou conseils que s'ils sont tenus à la même obligation de confidentialité que celle prévue aux présentes. Cette obligation ne s'étend pas aux documents, éléments, données et informations :",
+        "- Dont la partie qui les reçoit avait déjà connaissance ;",
+        "- Déjà publics lors de leur communication ou qui le deviendraient sans violation des présentes conditions générales ;",
+        "- Qui auraient été reçus d'un tiers de manière licite ;",
+        "- Dont la communication serait exigée par les autorités judiciaires, en application des lois et règlements ou en vue d'établir les droits d'une partie au titre des présentes conditions générales."
+      ]
+    },
+    {
+      "id": 13,
+      "title": "13. Données personnelles",
+      "content":[
+         "** 13.1. Dispositions générales **",
+         "La Société et le Client s'engagent, chacun pour ce qui le concerne, à se conformer à la réglementation applicable aux données à caractère personnel et en particulier au règlement général sur la protection des données (règlement UE 2016/679 du Parlement européen et du Conseil du 27 avril 2016).",
+         "Dans le cadre des Services, la Société est amené à traiter des données à caractère personnel. Les caractéristiques de ce traitement sont les suivantes :",
+         "- Type de données à caractère personnel traitées : Données d'identification",
+         "- Catégories de personnes concernées : Client et sa clientèle",
+         "- Durée du traitement : Durée du contrat",
+         "- Lieu du traitement : France",
+         "Le client est le responsable du traitement de ces données et est tenu de s'acquitter des obligations qui lui reviennent en application du règlement précité, notamment en ce qui concerne l'obligation d'informer les personnes concernées, la tenue du registre des traitements mis en œuvre, et plus généralement, le respect des principes issus du règlement.",
+         "Les données fournis par le Client à la Société aux fins d'exécutions des Services demeurent la seule propriété et sous la seule responsabilité du Client.",
+         "La Société intervient pour sa part exclusivement en qualité de sous-traitant des données à caractère personnel.",
+         "** 13.2. Obligations de la Société vis-à-vis du Client **",
+         "*** 13.2.1 Traitement des données ***",
+         "La Société s'engage à ne traiter les données à caractère personnel qu'aux fins d'exécution des Services et conformément aux instructions documentées du Client, y compris en ce qui concerne le transfert des données en dehors de l'Union Européenne. La Société s'engage à informer le Client si, selon lui, une instruction constitue une violation de la réglementation applicable.",
+         "*** 13.2.2 Sécurité et confidentialité des données ***",
+         "La Société s'engage à mettre en œuvre les mesures techniques et organisationnelles appropriées pour assurer la confidentialité, la sécurité et l'intégrité des données à caractère personnel, leur sauvegarde ainsi que le rétablissement de leur disponibilité en cas d'incident physique ou technique.",
+         "La Société veille également à ce que les personnes autorisées à traiter les données à caractère personnel soient soumises à l'obligation d'en préserver la confidentialité.",
+         "*** 13.2.3 Autres sous-traitants ***",
+         "La Société s’engage à ne pas faire appel à d’autres sous-traitants (ci-après : « les sous-traitants ultérieurs ») sans l’autorisation écrite préalable, spécifique ou générale, du Client. Dans le cas d’une autorisation écrite générale, la Société s’engage à informer le Client de tout changement prévu concernant l’ajout ou le remplacement d’un sous-traitant ultérieur, le Client disposant alors de la possibilité d’émettre des objections à l’encontre de ces changements.",
+         "Le sous-traitant ultérieur est tenu de respecter les obligations de la Société pour le compte et selon les instructions du Client. Il appartient à la Société de s’assurer que le sous-traitant ultérieur présente les mêmes garanties suffisantes quant à la mise en œuvre de mesures techniques et organisationnelles appropriées de manière à ce que le traitement réponde aux exigences du RGPD. Si le sous-traitant ultérieur ne remplit pas ses obligations en matière de protection des données, la Société demeure pleinement responsable devant le Client de l’exécution par l’autre sous-traitant de ses obligations.",
+         "*** 13.2.4 Fournitures d'informations ***",
+         "La Société s’engage à répondre à toute demande d’information lui étant adressée par le Client, que ce soit dans le cadre d’une demande d’exercice de leurs droits par les personnes concernées, d’une analyse d’impact, ou d’une demande présentée par les autorités de protection des données ou les délégués à la protection des données du Client.",
+         "*** 13.2.5 Notifications des violations de données à caractère personnel ***",
+         "La Société s’engage à notifier au Client toute violation de données à caractère personnel dans un délai de 72 heures après en avoir pris connaissance. Dans le cas où le Client aurait lui-même à notifier cette violation à l’autorité de contrôle compétente, la Société s’engage à lui communiquer toute documentation utile",
+         "*** 13.2.6 Conservation des données ***",
+         "La Société s’engage à supprimer les données à caractère personnel à expiration du contrat, qu’elle qu’en soit la cause, et à ne pas en conserver de copie.",
+         "*** 13.2.7 Registre et documentation ***",
+         "La Société tient par écrit un registre des traitements effectués pour le compte de ses clients. Ce registre comprend en outre les informations afférentes à ces traitements. La Société met à disposition du Client, sur demande de celui-ci, toutes les informations nécessaires pour démontrer le respect de ses obligations."
+      ]
+    },
+    {
+      "id": 14,
+      "title": "14. Force majeure" ,
+      "content": [
+        "Conformément aux dispositions de l’article 1218 du Code civil, aucune Partie ne pourra voir sa responsabilité engagée pour un défaut d’exécution de ses obligations contractuelles si ce défaut est dû à un évènement, indépendant de la volonté des Parties et constitutif de force majeure.",
+        "Par force majeure, les Parties conviennent d’entendre la survenance d’un évènement présentant les caractéristiques d’imprévisibilité et d’irrésistibilité habituellement reconnues par la loi et les tribunaux français ainsi que les grèves, activités terroristes, émeutes, insurrections, guerres, actions gouvernementales, épidémies, catastrophes naturelles ou défaut imputable à un prestataire tiers de télécommunication.",
+        "La Partie empêchée devra informer dans les meilleurs délais l’autre Partie en indiquant la nature du cas de force majeure. Les Parties se rapprocheront afin de déterminer ensemble les moyens les plus appropriés pour pallier, si possible, les conséquences du ou des évènement(s) constitutif(s) de la force majeure.",
+        "Si le cas de force majeure perdure plus de 1 (un) mois, chaque Partie pourra résilier le Contrat, de plein droit, sans formalité judiciaire, sans préavis et sans droit à indemnités de quelque nature que ce soit, par l’envoi d’une lettre recommandée avec avis de réception ayant effet immédiat.",
+        "Si, à la suite d’un cas de force majeure la Partie affectée est empêchée de remplir seulement une partie de ses obligations contractuelles, elle reste responsable de l’exécution des obligations qui ne sont pas affectées par le cas de force majeure ainsi que de ses obligations de paiement.",
+        "Dès cessation du cas de force majeure, la Partie empêchée doit informer immédiatement l’autre Partie et reprendre l’exécution des obligations affectées dans un délai raisonnable."
+      ]
+    },
+    {
+      "id": 15,
+      "title": "15. Cession de Contrat" ,
+      "content": [
+        "Le présent contrat étant conclu intuitu personae, en fonction de l’organisation et de la structure des Parties, les droits et obligations en résultant ne pourront être transférés, par chacune des Parties, sous quelque forme, à quelque titre et à quelque personne que ce soit."
+      ]
+    },
+    {
+      "id": 16,
+      "title": "16. Références commerciales" ,
+      "content": [
+        "Sauf mention expresse transmise à la Société par tout moyen écrit utile, le Client autorise la Société à faire usage de son nom, de sa marque, de son logo, des références de son site internet à titre de références commerciales, sur tout support et sous quelque forme que ce soit."
+      ]
+    },
+    {
+      "id": 17,
+      "title": "17. Sous-traitance" ,
+      "content": [
+        "La Société se réserve la faculté de recourir aux sous-traitants de son choix afin de procéder aux Services. Dans cette hypothèse, la Société en avisera le Client et s’engage à faire respecter par ses sous traitants les mêmes obligations contractuelles que celles auxquelles il se soumet dans le cadre des conditions générales. La Société restera en tout état de cause seul responsable de la bonne exécution des Services à l’égard du Client."
+      ]
+    },
+    {
+      "id": 18,
+      "title": "18. Médiation" ,
+      "content": [
+        "Lorsque le Client remplit les conditions requises par le Code de la consommation, il dispose du droit de recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable de tout litige portant sur l’exécution des présentes qui l’opposerait à la Société, dans les conditions prévues aux articles L611-1 et suivants et R612-1 et suivants du Code de la consommation."
+      ]
+    },
+    {
+      "id": 19,
+      "title": "19. Signature électronique" ,
+      "content": [
+        "Il est entendu entre les Parties que les présentes pourront être signées par tout moyen électronique, les Parties reconnaissant la fiabilité du procédé lui conférant ainsi la même valeur juridique qu’une signature manuscrite au sens de la loi."
+      ]
+    },
+    {
+      "id": 20,
+      "title": "20. Loi application et juridiction" ,
+      "content": [
+        "Le Contrat est soumis au droit français et sera régi et interprété selon ce droit.",
+        "Tout litige pouvant naître à l’occasion de sa validité, de son interprétation ou de son exécution sera soumis à la compétence exclusive du Tribunal de Commerce de Dieppe (France), sauf règle de procédure impérative contraire."
+      ]
+    }
+  ]

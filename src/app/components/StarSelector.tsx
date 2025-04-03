@@ -1,5 +1,3 @@
-// src/app/components/StarSelector.tsx
-
 "use client";
 
 import { Star } from "lucide-react";
