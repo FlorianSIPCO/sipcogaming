@@ -1,10 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Bienvenue sur SIPCO Gaming !
 
-## Getting Started
+<p align="center">
+<img src="https://github.com/FlorianSIPCO/sipcogaming/blob/main/public/images/logo.png" alt="Logo SIPCO Gaming" width="200" />
+</p>
 
-First, run the development server:
+<br />
+<h1 fontSize="32px">Guide d'installation</h1>
+
+## Cloner le projet
+```bash
+# Cloner le projet
+$ https://github.com/FlorianSIPCO/sipcogaming.git
+```
+ou
+
+--> Télécharger le fichier .zip
+
+--> Ouvrir le dossier téléchargé avec votre éditeur de code
+
+## Installation
 
 ```bash
+# Installer les dépendances
+$ npm install
+```
+
+## Lancer l'application
+
+```bash
+# Lancer l'application
+
 npm run dev
 # or
 yarn dev
@@ -14,24 +39,24 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrir [http://localhost:3000](http://localhost:3000) dans votre navigateur pour voir le projet.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Stack technique
++ NextJS 15 (React 19)
++ NextAuth
++ Prisma
++ TypeScript
++ Tailwind
++ Stripe
++ Cloudinary
++ ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Documentation officielle
 
-To learn more about Next.js, take a look at the following resources:
+Documentation officielle de Nextjs :
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# sipcogaming
+![Dernière mise à jour](https://img.shields.io/github/last-commit/FlorianSIPCO/sipcogaming?label=Dernière%20mise%20à%20jour)
