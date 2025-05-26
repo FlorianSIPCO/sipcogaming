@@ -2,4 +2,4 @@ User-agent: *
 Disallow: /admin/ 
 Disallow: /dashboard/
 
-Sitemap: https://www.sipcogaming.com/sitemap.xml
+Sitemap: https://sipcogaming.fr/sitemap.xml
