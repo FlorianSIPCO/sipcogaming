@@ -20,9 +20,9 @@ export default function LeadSubmissionEmail(data: Props) {
           {/* Logo */}
           <Section style={{ textAlign: "center", marginBottom: "24px" }}>
             <Img
-              src="https://configurateur-khaki.vercel.app/images/logo-black.png"
+              src="https://sipcogaming.fr/images/logo-SIPCO-Blanc-fond-transparent-22102024.png"
               width="140"
-              alt="Logo entreprise"
+              alt="Logo entreprise SIPCO"
               style={{ margin: "0 auto" }}
             />
           </Section>

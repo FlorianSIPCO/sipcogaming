@@ -12,7 +12,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function sendMail(to: string, subject: string, text: string, html?: string) {
   try {
     const response = await resend.emails.send({
-      from: "Validation d'Email<onboarding@resend.dev>", // Remplacer par le domaine validÃ© sur Resend
+      from: "SIPCO<noreply@sipcogaming.fr>",
       to: [to],
       subject,
       text,

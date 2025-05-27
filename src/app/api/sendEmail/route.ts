@@ -11,8 +11,9 @@ export async function POST(req: Request) {
     const { firstname, lastname, email, phone, productId } = data;
 
     const emailRes = await resend.emails.send({
-      from: 'Devis simulateur <onboarding@resend.dev>',
-      to: 'florian.bouclet@sipco.fr',
+      from: "SIPCO Gaming <noreply@sipcogaming.fr>",
+      to: 'contact@sipco.fr',
+      replyTo: data.email,
       subject: `Nouveau devis de ${firstname} ${lastname}`,
       react: LeadSubmissionEmail({ firstname, lastname, email, phone, productId }),
     });
